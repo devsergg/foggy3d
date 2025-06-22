@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { ArrowRight, Play, Sparkles } from 'lucide-react';
+import Link from 'next/link';
 
 export default function HeroSection() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -122,13 +123,13 @@ export default function HeroSection() {
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </button>
               
-              <button 
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              <Link 
+                href="/contact"
                 className="group border-2 border-neutral-300 text-black px-8 py-4 rounded-xl hover:border-primary-400 hover:bg-primary-50 transition-all duration-300 font-semibold text-lg backdrop-blur-sm bg-white/80 shadow-sm hover:shadow-md transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
               >
                 <Play className="h-5 w-5" />
                 Custom Project
-              </button>
+              </Link>
             </div>
 
             {/* Enhanced Stats */}

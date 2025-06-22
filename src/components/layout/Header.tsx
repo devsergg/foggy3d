@@ -4,20 +4,22 @@ import { useState, useEffect } from 'react';
 import { Menu, X, ShoppingCart, Sparkles } from 'lucide-react';
 import { NavigationItem } from '@/types';
 import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const navigation: NavigationItem[] = [
-  { name: 'Home', href: '#home', current: true },
-  { name: 'Products', href: '#products', current: false },
-  { name: 'Engineering', href: '#engineering', current: false },
-  { name: 'Process', href: '#process', current: false },
-  { name: 'About', href: '#about', current: false },
-  { name: 'Contact', href: '#contact', current: false },
+  { name: 'Home', href: '/', current: true },
+  { name: 'Products', href: '/products', current: false },
+  { name: 'Engineering', href: '/engineering', current: false },
+  { name: 'Process', href: '/process', current: false },
+  { name: 'About', href: '/about', current: false },
+  { name: 'Contact', href: '/contact', current: false },
 ];
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
+  const pathname = usePathname();
 
   // Handle scroll effect with more granular control
   useEffect(() => {
@@ -30,41 +32,28 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Track active section with improved detection
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = navigation.map(item => item.href.substring(1));
-      const currentSection = sections.find(section => {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          return rect.top <= 120 && rect.bottom >= 120;
-        }
-        return false;
-      });
-      
-      if (currentSection) {
-        setActiveSection(currentSection);
+  const handleNavigation = (href: string) => {
+    // If it's a hash link (contact section), scroll to it
+    if (href.includes('#')) {
+      const element = document.querySelector(href.split('#')[1] ? `#${href.split('#')[1]}` : href);
+      if (element) {
+        const headerHeight = 80;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
       }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      const headerHeight = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
     }
+    // For regular navigation, Next.js Link will handle it
     setMobileMenuOpen(false);
+  };
+
+  const isActive = (href: string) => {
+    if (href === '/') return pathname === '/';
+    return pathname === href;
   };
 
   return (
@@ -81,8 +70,8 @@ export default function Header() {
           <div className="flex w-full items-center justify-between py-3">
             {/* Enhanced Logo */}
             <div className="flex items-center">
-              <button 
-                onClick={() => scrollToSection('#home')}
+              <Link 
+                href="/"
                 className="group flex items-center space-x-3 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:ring-offset-2 focus:ring-offset-transparent rounded-xl p-2 -m-2"
               >
                 <div className="relative">
@@ -97,19 +86,20 @@ export default function Header() {
                   {/* Subtle glow effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-primary-500/20 to-secondary-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl -z-10" />
                 </div>
-              </button>
+              </Link>
             </div>
 
             {/* Enhanced Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-1">
               {navigation.map((item) => {
-                const isActive = activeSection === item.href.substring(1);
+                const active = isActive(item.href);
+                
                 return (
-                  <button
+                  <Link
                     key={item.name}
-                    onClick={() => scrollToSection(item.href)}
+                    href={item.href}
                     className={`group relative px-4 py-2.5 rounded-xl font-medium transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:ring-offset-2 focus:ring-offset-transparent ${
-                      isActive 
+                      active 
                         ? 'text-primary-600 bg-gradient-to-r from-primary-50 to-secondary-50 shadow-soft border border-primary-100' 
                         : 'text-neutral-700 hover:text-primary-600 hover:bg-gradient-to-r hover:from-primary-50/50 hover:to-secondary-50/50'
                     }`}
@@ -117,13 +107,13 @@ export default function Header() {
                     <span className="relative z-10">{item.name}</span>
                     
                     {/* Active indicator */}
-                    {isActive && (
+                    {active && (
                       <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full shadow-glow" />
                     )}
                     
                     {/* Hover effect */}
                     <div className="absolute inset-0 bg-gradient-to-r from-primary-500/10 to-secondary-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
-                  </button>
+                  </Link>
                 );
               })}
               
@@ -142,9 +132,9 @@ export default function Header() {
 
               {/* Enhanced CTA Button */}
               <div className="ml-4">
-                <button 
-                  onClick={() => scrollToSection('#contact')}
-                  className="group relative bg-gradient-to-r from-primary-500 to-secondary-500 text-white px-6 py-2.5 rounded-xl hover:from-primary-600 hover:to-secondary-600 transition-all duration-300 font-semibold shadow-colored hover:shadow-colored-lg transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:ring-offset-2 focus:ring-offset-transparent overflow-hidden"
+                <Link 
+                  href="/contact"
+                  className="group relative bg-gradient-to-r from-primary-500 to-secondary-500 text-white px-6 py-2.5 rounded-xl hover:from-primary-600 hover:to-secondary-600 transition-all duration-300 font-semibold shadow-colored hover:shadow-colored-lg transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:ring-offset-2 focus:ring-offset-transparent overflow-hidden inline-flex items-center"
                 >
                   <span className="relative z-10 flex items-center gap-2">
                     <Sparkles className="h-4 w-4 transition-transform duration-300 group-hover:rotate-12" />
@@ -156,7 +146,7 @@ export default function Header() {
                   
                   {/* Shine effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-                </button>
+                </Link>
               </div>
             </div>
 
@@ -197,31 +187,34 @@ export default function Header() {
             <div className="px-2 pt-4 pb-8 space-y-3 bg-white/90 backdrop-blur-xl border-t border-white/20 rounded-b-3xl shadow-2xl mx-2 mb-2">
               {/* Mobile navigation items */}
               {navigation.map((item, index) => {
-                const isActive = activeSection === item.href.substring(1);
+                const active = isActive(item.href);
+                
                 return (
-                  <button
+                  <Link
                     key={item.name}
-                    onClick={() => scrollToSection(item.href)}
+                    href={item.href}
+                    onClick={() => setMobileMenuOpen(false)}
                     className={`group flex items-center justify-between w-full px-5 py-4 rounded-2xl font-medium transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:ring-offset-2 focus:ring-offset-transparent ${
-                      isActive 
+                      active 
                         ? 'text-primary-600 bg-gradient-to-r from-primary-50 to-secondary-50 shadow-soft border border-primary-100' 
                         : 'text-neutral-700 hover:text-primary-600 hover:bg-gradient-to-r hover:from-primary-50/50 hover:to-secondary-50/50'
                     }`}
                     style={{ animationDelay: `${index * 50}ms` }}
                   >
                     <span className="font-semibold">{item.name}</span>
-                    {isActive && (
+                    {active && (
                       <div className="w-2 h-2 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full shadow-glow animate-pulse" />
                     )}
-                  </button>
+                  </Link>
                 );
               })}
               
               {/* Mobile CTA */}
               <div className="pt-6 mt-6 border-t border-neutral-200/50">
-                <button 
-                  onClick={() => scrollToSection('#contact')}
-                  className="group relative w-full bg-gradient-to-r from-primary-500 to-secondary-500 text-white px-6 py-4 rounded-2xl hover:from-primary-600 hover:to-secondary-600 transition-all duration-300 font-semibold shadow-colored hover:shadow-colored-lg transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:ring-offset-2 focus:ring-offset-transparent overflow-hidden"
+                <Link 
+                  href="/contact"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="group relative w-full bg-gradient-to-r from-primary-500 to-secondary-500 text-white px-6 py-4 rounded-2xl hover:from-primary-600 hover:to-secondary-600 transition-all duration-300 font-semibold shadow-colored hover:shadow-colored-lg transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:ring-offset-2 focus:ring-offset-transparent overflow-hidden inline-flex items-center justify-center"
                 >
                   <span className="relative z-10 flex items-center justify-center gap-2">
                     <Sparkles className="h-5 w-5 transition-transform duration-300 group-hover:rotate-12" />
@@ -233,7 +226,7 @@ export default function Header() {
                   
                   {/* Shine effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-                </button>
+                </Link>
               </div>
             </div>
           </div>
