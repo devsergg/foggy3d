@@ -7,42 +7,39 @@ import ProductCard from '@/components/ui/ProductCard';
 import FilterBar from '@/components/ui/FilterBar';
 
 export default function ProductsSection() {
-  const [selectedCategory, setSelectedCategory] = useState('all');
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-
-  const filteredProducts = selectedCategory === 'all'
+  const [activeFilter, setActiveFilter] = useState<ProductCategory | 'all'>('all');
+  
+  const filteredProducts = activeFilter === 'all'
     ? sampleProducts
-    : sampleProducts.filter(product => product.category === selectedCategory);
+    : sampleProducts.filter(product => product.category === activeFilter);
 
   // Calculate product counts for each category
   const productCounts = useMemo(() => {
     const counts: Record<ProductCategory | 'all', number> = {
       'all': sampleProducts.length,
-      'keychains': 0,
-      'flexi-toys': 0,
+      'sf-souvenirs': 0,
       'vases': 0,
       'lamps': 0,
-      'sf-souvenirs': 0,
+      'flexi-toys': 0,
+      'keychains': 0,
       'functional': 0,
     };
 
     sampleProducts.forEach(product => {
-      counts[product.category] = (counts[product.category] || 0) + 1;
+      counts[product.category]++;
     });
 
     return counts;
   }, []);
 
   const handleViewDetails = (product: Product) => {
-    setSelectedProduct(product);
-    // TODO: Open product modal
+    // Handle product details view
     console.log('View details for:', product.name);
   };
 
   const handleAddToCart = (product: Product) => {
-    // TODO: Add to cart functionality
+    // Handle add to cart
     console.log('Add to cart:', product.name);
-    // You could show a toast notification here
   };
 
   return (
@@ -61,16 +58,21 @@ export default function ProductsSection() {
 
         {/* Filter Bar */}
         <FilterBar 
-          selectedCategory={selectedCategory}
-          onCategoryChange={setSelectedCategory}
-          productCount={filteredProducts.length}
+          activeFilter={activeFilter}
+          onFilterChange={setActiveFilter}
+          productCounts={productCounts}
         />
 
         {/* Products Grid */}
         {filteredProducts.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-12">
             {filteredProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
+              <ProductCard 
+                key={product.id} 
+                product={product}
+                onViewDetails={handleViewDetails}
+                onAddToCart={handleAddToCart}
+              />
             ))}
           </div>
         ) : (
