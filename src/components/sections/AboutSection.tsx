@@ -30,13 +30,13 @@ export default function AboutSection() {
               </p>
               
               <p>
-                This diverse experience isn't scattered expertise—it's my secret weapon. When a client brings me 
+                This diverse experience isn&apos;t scattered expertise—it&apos;s my secret weapon. When a client brings me 
                 a challenge, I can draw from automotive precision, woodworking craftsmanship, research methodology, 
                 and digital innovation to create solutions others might miss.
               </p>
               
               <p>
-                Whether it's engineering a cost-effective roof rail system that combines 3D printed spacers with 
+                Whether it&apos;s engineering a cost-effective roof rail system that combines 3D printed spacers with 
                 unistrut rails, or creating a custom jig that solves a unique manufacturing problem, 
                 I bring a <strong>multi-industry perspective</strong> to every project.
               </p>
@@ -108,7 +108,7 @@ export default function AboutSection() {
             <div>
               <p className="text-lg text-neutral-700 mb-4">
                 Foggy3D was born in a San Francisco garage workshop, surrounded by countless hours of tinkering, 
-                designing, and problem-solving. There's something magical about SF's maker culture—the belief 
+                designing, and problem-solving. There&apos;s something magical about SF&apos;s maker culture—the belief 
                 that with enough creativity and determination, you can build anything.
               </p>
               
@@ -148,8 +148,8 @@ export default function AboutSection() {
           <h3 className="text-3xl font-bold text-black mb-6">My Mission</h3>
           <p className="text-xl text-neutral-700 max-w-4xl mx-auto mb-8">
             To bridge the gap between <strong>creative vision</strong> and <strong>functional reality</strong>. 
-            Whether you're an entrepreneur with a breakthrough idea, an engineer facing a unique challenge, 
-            or someone who simply wants to create something beautiful—I'm here to help you build it.
+            Whether you&apos;re an entrepreneur with a breakthrough idea, an engineer facing a unique challenge, 
+            or someone who simply wants to create something beautiful—I&apos;m here to help you build it.
           </p>
           
           <div className="grid md:grid-cols-3 gap-8 mt-12">
@@ -186,8 +186,8 @@ export default function AboutSection() {
               Ready to Build Something Amazing?
             </h3>
             <p className="text-lg text-neutral-800 mb-6 max-w-2xl mx-auto">
-              Let's combine your vision with my cross-disciplinary expertise to create solutions that work. 
-              From garage workshop to your project—let's build it together.
+              Let&apos;s combine your vision with my cross-disciplinary expertise to create solutions that work. 
+              From garage workshop to your project—let&apos;s build it together.
             </p>
             <button 
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}

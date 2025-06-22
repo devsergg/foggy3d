@@ -329,6 +329,33 @@ export default function EngineeringPortfolio() {
                   Request Quote
                 </button>
               </div>
+
+              <div className="bg-white rounded-xl p-6 border-2 border-neutral-200">
+                <h4 className="font-bold text-black mb-4">Why This Solution Works</h4>
+                <p className="text-neutral-600 mb-4">
+                  Sometimes the best engineering solutions aren&apos;t the most complex—they&apos;re the most practical. 
+                  This roof rail system proves that targeted 3D printing combined with standard hardware 
+                  can deliver professional results at a fraction of traditional costs.
+                </p>
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle className="h-4 w-4 text-green-600" />
+                    <span className="text-sm text-neutral-700">Modular design for different car models</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle className="h-4 w-4 text-green-600" />
+                    <span className="text-sm text-neutral-700">Quick installation and removal</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle className="h-4 w-4 text-green-600" />
+                    <span className="text-sm text-neutral-700">Supports multiple attachment systems</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle className="h-4 w-4 text-green-600" />
+                    <span className="text-sm text-neutral-700">Weather-resistant materials</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -230,7 +230,7 @@ export default function ProcessFlow() {
             </h3>
             <p className="text-lg text-neutral-800 mb-6 max-w-2xl mx-auto">
               Our streamlined process ensures quality results and clear communication every step of the way. 
-              Let's bring your ideas to life!
+              Let&apos;s turn your concept into a custom solution that works perfectly for your needs.
             </p>
             <button 
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}

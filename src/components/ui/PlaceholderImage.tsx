@@ -1,4 +1,4 @@
-import { Car, Settings, Grid3X3 } from 'lucide-react';
+import { Settings, Grid3X3 } from 'lucide-react';
 
 interface PlaceholderImageProps {
   title: string;

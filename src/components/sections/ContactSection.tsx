@@ -108,11 +108,11 @@ export default function ContactSection() {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-black mb-4">
-            Let's Bring Your Ideas to Life
+            Let&apos;s Bring Your Ideas to Life
           </h2>
           <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
-            Ready to start your custom project? Whether it's a complex engineering solution, high-quality printing of your CAD files, or a personalized gift, 
-            we're here to help turn your vision into reality.
+            Ready to start your custom project? Whether it&apos;s a complex engineering solution, high-quality printing of your CAD files, or a personalized gift, 
+            we&apos;re here to help turn your vision into reality.
           </p>
         </div>
 
@@ -188,7 +188,7 @@ export default function ContactSection() {
             {submitStatus === 'success' && (
               <div className="mb-6 p-4 bg-green-50 border-2 border-green-200 rounded-lg flex items-center gap-2">
                 <CheckCircle className="h-5 w-5 text-green-600" />
-                <p className="text-green-800 font-semibold">Thank you! We'll be in touch within 24 hours.</p>
+                <p className="text-green-800 font-semibold">Thank you! We&apos;ll be in touch within 24 hours.</p>
               </div>
             )}
 
@@ -321,7 +321,7 @@ export default function ContactSection() {
             </form>
 
             <p className="mt-4 text-sm text-neutral-500 text-center">
-              By submitting this form, you agree to our privacy policy. We'll never share your information.
+              By submitting this form, you agree to our privacy policy. We&apos;ll never share your information.
             </p>
           </div>
         </div>
@@ -337,17 +337,17 @@ export default function ContactSection() {
             
             <div className="bg-neutral-50 rounded-xl p-6 border-2 border-neutral-200">
               <h4 className="font-bold text-black mb-3">Do you print customer-provided CAD files?</h4>
-              <p className="text-neutral-600">Absolutely! We provide high-quality 3D printing services for your CAD files. We work with STL, OBJ, 3MF, and STEP files at the highest quality possible. Don't have a 3D model? We can also create designs from sketches, photos, or detailed descriptions.</p>
+              <p className="text-neutral-600">Absolutely! We provide high-quality 3D printing services for your CAD files. We work with STL, OBJ, 3MF, and STEP files at the highest quality possible. Don&apos;t have a 3D model? We can also create designs from sketches, photos, or detailed descriptions.</p>
             </div>
             
             <div className="bg-neutral-50 rounded-xl p-6 border-2 border-neutral-200">
               <h4 className="font-bold text-black mb-3">Do you offer rush orders?</h4>
-              <p className="text-neutral-600">Yes! For urgent projects, we offer same-day and next-day printing for an additional fee. Contact us with your timeline and we'll let you know what's possible.</p>
+              <p className="text-neutral-600">Yes! For urgent projects, we offer same-day and next-day printing for an additional fee. Contact us with your timeline and we&apos;ll let you know what&apos;s possible.</p>
             </div>
             
             <div className="bg-neutral-50 rounded-xl p-6 border-2 border-neutral-200">
-              <h4 className="font-bold text-black mb-3">What's your quality guarantee?</h4>
-              <p className="text-neutral-600">We stand behind every print. If you're not satisfied with the quality, we'll reprint or refund your order. For custom engineering projects, we iterate until the solution meets your requirements.</p>
+              <h4 className="font-bold text-black mb-3">What&apos;s your quality guarantee?</h4>
+              <p className="text-neutral-600">We stand behind every print. If you&apos;re not satisfied with the quality, we&apos;ll reprint or refund your order. For custom engineering projects, we iterate until the solution meets your requirements.</p>
             </div>
           </div>
         </div>

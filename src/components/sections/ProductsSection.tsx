@@ -7,16 +7,12 @@ import ProductCard from '@/components/ui/ProductCard';
 import FilterBar from '@/components/ui/FilterBar';
 
 export default function ProductsSection() {
-  const [activeFilter, setActiveFilter] = useState<ProductCategory | 'all'>('all');
+  const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
-  // Filter products based on active filter
-  const filteredProducts = useMemo(() => {
-    if (activeFilter === 'all') {
-      return sampleProducts;
-    }
-    return sampleProducts.filter(product => product.category === activeFilter);
-  }, [activeFilter]);
+  const filteredProducts = selectedCategory === 'all'
+    ? sampleProducts
+    : sampleProducts.filter(product => product.category === selectedCategory);
 
   // Calculate product counts for each category
   const productCounts = useMemo(() => {
@@ -49,84 +45,56 @@ export default function ProductsSection() {
     // You could show a toast notification here
   };
 
-  const handleFilterChange = (filter: ProductCategory | 'all') => {
-    setActiveFilter(filter);
-  };
-
   return (
-    <section id="products" className="py-20 bg-neutral-50">
+    <section id="products" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+        {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-black mb-6">
-            Creative Collections
+          <h2 className="text-4xl font-bold text-black mb-4">
+            Our Product Collection
           </h2>
-          <p className="text-xl text-black max-w-3xl mx-auto font-semibold">
-            Discover our unique 3D printed products, from San Francisco-themed souvenirs 
-            to artistic home decor. Each piece is crafted with precision and creativity.
+          <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
+            From San Francisco-inspired souvenirs to functional home accessories, 
+            each piece is crafted with precision and attention to detail.
           </p>
         </div>
 
         {/* Filter Bar */}
-        <div className="mb-12">
-          <FilterBar
-            activeFilter={activeFilter}
-            onFilterChange={handleFilterChange}
-            productCounts={productCounts}
-          />
-        </div>
+        <FilterBar 
+          selectedCategory={selectedCategory}
+          onCategoryChange={setSelectedCategory}
+          productCount={filteredProducts.length}
+        />
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {filteredProducts.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              onViewDetails={handleViewDetails}
-              onAddToCart={handleAddToCart}
-            />
-          ))}
-        </div>
-
-        {/* Empty State */}
-        {filteredProducts.length === 0 && (
+        {filteredProducts.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            {filteredProducts.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        ) : (
           <div className="text-center py-16">
-            <div className="text-6xl mb-4">🔍</div>
-            <h3 className="text-2xl font-bold text-black mb-2">No products found</h3>
-            <p className="text-neutral-600 mb-6">
-              Try selecting a different category or check back soon for new products.
-            </p>
-            <button
-              onClick={() => setActiveFilter('all')}
-              className="bg-primary-500 text-white px-6 py-3 rounded-lg hover:bg-primary-600 transition-colors font-semibold"
-            >
-              Show All Products
-            </button>
+            <div className="text-6xl text-neutral-300 mb-4">🔍</div>
+            <h3 className="text-xl font-bold text-black mb-2">No products found</h3>
+            <p className="text-neutral-600">Try selecting a different category or browse all products.</p>
           </div>
         )}
 
-        {/* Featured Products Footer */}
-        <div className="mt-16 text-center">
-          <div className="bg-white rounded-xl p-8 border-2 border-neutral-200 shadow-md">
-            <h3 className="text-2xl font-bold text-black mb-4">
-              Need Something Custom?
-            </h3>
-            <p className="text-black mb-6 max-w-2xl mx-auto">
-              Don't see exactly what you're looking for? We specialize in custom 3D printing 
-              projects. From personalized gifts to functional engineering solutions.
-            </p>
-            <button 
-              onClick={() => {
-                const element = document.querySelector('#contact');
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-              className="bg-secondary-500 text-white px-8 py-4 rounded-xl hover:bg-secondary-600 transition-colors font-bold text-lg"
-            >
-              Request Custom Quote
-            </button>
-          </div>
+        {/* Custom Project CTA */}
+        <div className="mt-20 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-2xl p-8 text-center">
+          <h3 className="text-3xl font-bold text-black mb-4">
+            Don&apos;t See What You&apos;re Looking For?
+          </h3>
+          <p className="text-lg text-neutral-800 mb-6 max-w-2xl mx-auto">
+            Every great product starts with a great idea. Let&apos;s create something unique together.
+          </p>
+          <button 
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            className="bg-white text-primary-600 px-8 py-3 rounded-lg hover:bg-neutral-100 transition-colors font-semibold text-lg"
+          >
+            Start Custom Project
+          </button>
         </div>
       </div>
     </section>
