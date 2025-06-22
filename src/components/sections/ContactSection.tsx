@@ -199,7 +199,7 @@ export default function ContactSection() {
               </div>
             )}
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6" suppressHydrationWarning>
               {/* Name */}
               <div>
                 <label htmlFor="name" className="block text-sm font-semibold text-black mb-2">
@@ -214,6 +214,7 @@ export default function ContactSection() {
                     errors.name ? 'border-red-300 bg-red-50' : 'border-neutral-300 focus:border-primary-500'
                   }`}
                   placeholder="Enter your full name"
+                  suppressHydrationWarning
                 />
                 {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name}</p>}
               </div>
@@ -232,6 +233,7 @@ export default function ContactSection() {
                     errors.email ? 'border-red-300 bg-red-50' : 'border-neutral-300 focus:border-primary-500'
                   }`}
                   placeholder="your@email.com"
+                  suppressHydrationWarning
                 />
                 {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
               </div>
@@ -246,6 +248,7 @@ export default function ContactSection() {
                   value={formData.inquiryType}
                   onChange={(e) => handleInputChange('inquiryType', e.target.value as ContactFormData['inquiryType'])}
                   className="w-full px-4 py-3 border-2 border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+                  suppressHydrationWarning
                 >
                   {inquiryTypes.map((type) => (
                     <option key={type.value} value={type.value}>
@@ -273,6 +276,7 @@ export default function ContactSection() {
                       errors.projectDetails ? 'border-red-300 bg-red-50' : 'border-neutral-300 focus:border-primary-500'
                     }`}
                     placeholder="Describe your engineering challenge, requirements, constraints, materials, timeline, etc."
+                    suppressHydrationWarning
                   />
                   {errors.projectDetails && <p className="mt-1 text-sm text-red-600">{errors.projectDetails}</p>}
                 </div>
@@ -292,6 +296,7 @@ export default function ContactSection() {
                     errors.message ? 'border-red-300 bg-red-50' : 'border-neutral-300 focus:border-primary-500'
                   }`}
                   placeholder="Tell us more about your project, budget, timeline, or any questions you have..."
+                  suppressHydrationWarning
                 />
                 {errors.message && <p className="mt-1 text-sm text-red-600">{errors.message}</p>}
               </div>
@@ -305,6 +310,7 @@ export default function ContactSection() {
                     ? 'bg-neutral-300 text-neutral-500 cursor-not-allowed'
                     : 'bg-primary-500 text-black hover:bg-primary-600'
                 }`}
+                suppressHydrationWarning
               >
                 {isSubmitting ? (
                   <>

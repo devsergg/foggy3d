@@ -5,6 +5,7 @@ import { Product, ProductCategory } from '@/types';
 import { sampleProducts } from '@/data/products';
 import ProductCard from '@/components/ui/ProductCard';
 import FilterBar from '@/components/ui/FilterBar';
+import { Sparkles, ArrowRight, Search } from 'lucide-react';
 
 export default function ProductsSection() {
   const [activeFilter, setActiveFilter] = useState<ProductCategory | 'all'>('all');
@@ -43,60 +44,113 @@ export default function ProductsSection() {
   };
 
   return (
-    <section id="products" className="py-20 bg-white">
+    <section id="products" className="py-24 bg-gradient-to-b from-white to-neutral-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-black mb-4">
-            Our Product Collection
+        {/* Enhanced Header */}
+        <div className="text-center mb-20 animate-fade-in">
+          <div className="inline-flex items-center gap-2 bg-primary-100 text-primary-700 px-4 py-2 rounded-full text-sm font-semibold border border-primary-200 mb-6">
+            <Sparkles className="h-4 w-4" />
+            Handcrafted Excellence
+          </div>
+          
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-6 leading-tight">
+            Our Product
+            <span className="block text-transparent bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text">
+              Collection
+            </span>
           </h2>
-          <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
+          
+          <p className="text-xl md:text-2xl text-neutral-600 max-w-4xl mx-auto leading-relaxed">
             From San Francisco-inspired souvenirs to functional home accessories, 
             each piece is crafted with precision and attention to detail.
           </p>
         </div>
 
-        {/* Filter Bar */}
-        <FilterBar 
-          activeFilter={activeFilter}
-          onFilterChange={setActiveFilter}
-          productCounts={productCounts}
-        />
+        {/* Enhanced Filter Bar */}
+        <div className="mb-16 animate-slide-up">
+          <FilterBar 
+            activeFilter={activeFilter}
+            onFilterChange={setActiveFilter}
+            productCounts={productCounts}
+          />
+        </div>
 
         {/* Products Grid */}
         {filteredProducts.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-12">
-            {filteredProducts.map((product) => (
-              <ProductCard 
-                key={product.id} 
-                product={product}
-                onViewDetails={handleViewDetails}
-                onAddToCart={handleAddToCart}
-              />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-20 animate-scale-in">
+            {filteredProducts.map((product, index) => (
+              <div 
+                key={product.id}
+                className="animate-slide-up"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <ProductCard 
+                  product={product}
+                  onViewDetails={handleViewDetails}
+                  onAddToCart={handleAddToCart}
+                />
+              </div>
             ))}
           </div>
         ) : (
-          <div className="text-center py-16">
-            <div className="text-6xl text-neutral-300 mb-4">🔍</div>
-            <h3 className="text-xl font-bold text-black mb-2">No products found</h3>
-            <p className="text-neutral-600">Try selecting a different category or browse all products.</p>
+          <div className="text-center py-20 animate-fade-in">
+            <div className="bg-gradient-to-br from-neutral-100 to-neutral-200 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6 shadow-soft">
+              <Search className="h-12 w-12 text-neutral-400" />
+            </div>
+            <h3 className="text-2xl font-bold text-black mb-3">No products found</h3>
+            <p className="text-lg text-neutral-600 mb-8">Try selecting a different category or browse all products.</p>
+            <button 
+              onClick={() => setActiveFilter('all')}
+              className="bg-gradient-to-r from-primary-500 to-primary-600 text-white px-6 py-3 rounded-xl hover:from-primary-600 hover:to-primary-700 transition-all duration-300 font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+            >
+              Show All Products
+            </button>
           </div>
         )}
 
-        {/* Custom Project CTA */}
-        <div className="mt-20 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-2xl p-8 text-center">
-          <h3 className="text-3xl font-bold text-black mb-4">
-            Don&apos;t See What You&apos;re Looking For?
-          </h3>
-          <p className="text-lg text-neutral-800 mb-6 max-w-2xl mx-auto">
-            Every great product starts with a great idea. Let&apos;s create something unique together.
-          </p>
-          <button 
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-white text-primary-600 px-8 py-3 rounded-lg hover:bg-neutral-100 transition-colors font-semibold text-lg"
-          >
-            Start Custom Project
-          </button>
+        {/* Enhanced Custom Project CTA */}
+        <div className="relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary-500 via-secondary-500 to-accent-500 animate-gradient-x"></div>
+          <div className="relative bg-white/10 backdrop-blur-sm rounded-3xl p-8 md:p-12 text-center border border-white/20 shadow-2xl">
+            {/* Decorative elements */}
+            <div className="absolute top-4 left-4 w-20 h-20 bg-white/10 rounded-full blur-xl"></div>
+            <div className="absolute bottom-4 right-4 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+            
+            <div className="relative z-10">
+              <div className="inline-flex items-center gap-2 bg-white/20 text-white px-4 py-2 rounded-full text-sm font-semibold border border-white/30 mb-6">
+                <Sparkles className="h-4 w-4" />
+                Custom Solutions
+              </div>
+              
+              <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+                Don't See What You're
+                <span className="block">Looking For?</span>
+              </h3>
+              
+              <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
+                Every great product starts with a great idea. Let's collaborate to create something 
+                unique that perfectly matches your vision and requirements.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button 
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="group bg-white text-primary-600 px-8 py-4 rounded-xl hover:bg-neutral-50 transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
+                >
+                  Start Custom Project
+                  <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </button>
+                
+                <button 
+                  onClick={() => document.getElementById('engineering')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="group border-2 border-white/30 text-white px-8 py-4 rounded-xl hover:border-white/50 hover:bg-white/10 transition-all duration-300 font-semibold text-lg backdrop-blur-sm shadow-md hover:shadow-lg transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
+                >
+                  View Engineering Portfolio
+                  <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
