@@ -115,13 +115,13 @@ export default function HeroSection() {
 
             {/* Enhanced CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <button 
-                onClick={() => document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' })}
+              <Link 
+                href="/products"
                 className="group bg-gradient-to-r from-primary-500 to-primary-600 text-white px-8 py-4 rounded-xl hover:from-primary-600 hover:to-primary-700 transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
               >
                 Explore Products
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </button>
+              </Link>
               
               <Link 
                 href="/contact"
