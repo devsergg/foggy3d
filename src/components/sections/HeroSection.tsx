@@ -1,108 +1,48 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
-import { ArrowRight, Play, Sparkles } from 'lucide-react';
+import { ArrowRight, Play, Sparkles, Star } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function HeroSection() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    // Set canvas size
-    canvas.width = 400;
-    canvas.height = 300;
-
-    let animationFrame: number;
-    let printHead = { x: 50, y: 100 };
-    let layerHeight = 250;
-    let printProgress = 0;
-
-    const animate = () => {
-      // Clear canvas
-      ctx.fillStyle = '#f5f5f5';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      // Draw print bed
-      ctx.fillStyle = '#e5e5e5';
-      ctx.fillRect(30, 250, 340, 20);
-
-      // Draw layers being printed
-      const layers = [
-        { height: layerHeight, color: '#ff6b35' },
-        { height: layerHeight + 15, color: '#f7931e' },
-        { height: layerHeight + 30, color: '#ffd700' },
-      ];
-
-      layers.forEach((layer) => {
-        if (printProgress > 0) {
-          ctx.fillStyle = layer.color;
-          const width = Math.min(printProgress * 4, 200);
-          ctx.fillRect(150, layer.height, width, 8);
-        }
-      });
-
-      // Draw print head
-      ctx.fillStyle = '#333';
-      ctx.fillRect(printHead.x, printHead.y, 20, 15);
-
-      // Draw filament line
-      ctx.strokeStyle = '#666';
-      ctx.lineWidth = 2;
-      ctx.beginPath();
-      ctx.moveTo(printHead.x + 10, printHead.y + 15);
-      ctx.lineTo(printHead.x + 10, printHead.y + 25);
-      ctx.stroke();
-
-      // Update animation
-      printHead.x += 2;
-      if (printHead.x > 300) {
-        printHead.x = 50;
-        printProgress += 10;
-        if (printProgress > 100) {
-          printProgress = 0;
-          layerHeight -= 45;
-          if (layerHeight < 150) layerHeight = 250;
-        }
-      }
-
-      animationFrame = requestAnimationFrame(animate);
-    };
-
-    animate();
-
-    return () => {
-      if (animationFrame) {
-        cancelAnimationFrame(animationFrame);
-      }
-    };
-  }, []);
+  const featuredProducts = [
+    {
+      name: 'Golden Gate Bridge Model',
+      image: '/images/products/sf-souvenirs/Golden_gate_bridge.png',
+      price: '$29.99'
+    },
+    {
+      name: 'AXEL Modern Desk Lamp',
+      image: '/images/products/lamps/AXEL LAMP 3 1080.png',
+      price: '$89.99'
+    },
+    {
+      name: 'Sun Dragon Articulated Figure',
+      image: '/images/products/flexi-toys/Sun Dragon Articulated Keychain Figure.PNG',
+      price: '$24.99'
+    }
+  ];
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-neutral-50 via-primary-50/30 to-secondary-50/30 flex items-center overflow-hidden">
+    <section className="relative min-h-screen bg-gradient-to-br from-neutral-50 via-primary-50/20 to-secondary-50/20 flex items-center overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left side - Content */}
           <div className="space-y-10 animate-fade-in">
             <div className="space-y-6">
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 bg-primary-100 text-primary-700 px-4 py-2 rounded-full text-sm font-semibold border border-primary-200">
+              <div className="inline-flex items-center gap-2 bg-primary-50 text-primary-700 px-4 py-2 rounded-full text-sm font-semibold border border-primary-200">
                 <Sparkles className="h-4 w-4" />
                 San Francisco's Premier 3D Printing
               </div>
 
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-black leading-[1.1] tracking-tight">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-neutral-900 leading-[1.1] tracking-tight">
                 From Creative
-                <span className="block text-transparent bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text">
+                <span className="block text-transparent bg-gradient-to-r from-primary-500 to-secondary-900 bg-clip-text">
                   Trinkets
                 </span>
                 to Functional
-                <span className="block text-transparent bg-gradient-to-r from-secondary-600 to-accent-600 bg-clip-text">
+                <span className="block text-transparent bg-gradient-to-r from-secondary-900 to-primary-500 bg-clip-text">
                   Designs
                 </span>
               </h1>
@@ -117,7 +57,7 @@ export default function HeroSection() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link 
                 href="/products"
-                className="group bg-gradient-to-r from-primary-500 to-primary-600 text-white px-8 py-4 rounded-xl hover:from-primary-600 hover:to-primary-700 transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
+                className="group bg-gradient-to-r from-primary-500 to-secondary-900 text-white px-8 py-4 rounded-xl hover:from-primary-600 hover:to-secondary-800 transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
               >
                 Explore Products
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -125,7 +65,7 @@ export default function HeroSection() {
               
               <Link 
                 href="/contact"
-                className="group border-2 border-neutral-300 text-black px-8 py-4 rounded-xl hover:border-primary-400 hover:bg-primary-50 transition-all duration-300 font-semibold text-lg backdrop-blur-sm bg-white/80 shadow-sm hover:shadow-md transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
+                className="group border-2 border-neutral-300 text-neutral-700 px-8 py-4 rounded-xl hover:border-primary-400 hover:bg-primary-50 transition-all duration-300 font-semibold text-lg backdrop-blur-sm bg-white/80 shadow-sm hover:shadow-md transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
               >
                 <Play className="h-5 w-5" />
                 Custom Project
@@ -135,19 +75,19 @@ export default function HeroSection() {
             {/* Enhanced Stats */}
             <div className="grid grid-cols-3 gap-8 pt-8 border-t border-neutral-200">
               <div className="text-center group">
-                <div className="text-3xl md:text-4xl font-bold text-transparent bg-gradient-to-r from-primary-600 to-primary-700 bg-clip-text group-hover:scale-110 transition-transform duration-300">
+                <div className="text-3xl md:text-4xl font-bold text-transparent bg-gradient-to-r from-primary-500 to-primary-700 bg-clip-text group-hover:scale-110 transition-transform duration-300">
                   500+
                 </div>
                 <div className="text-neutral-600 mt-2 font-medium">Projects Completed</div>
               </div>
               <div className="text-center group">
-                <div className="text-3xl md:text-4xl font-bold text-transparent bg-gradient-to-r from-secondary-600 to-secondary-700 bg-clip-text group-hover:scale-110 transition-transform duration-300">
+                <div className="text-3xl md:text-4xl font-bold text-transparent bg-gradient-to-r from-secondary-700 to-secondary-900 bg-clip-text group-hover:scale-110 transition-transform duration-300">
                   24h
                 </div>
                 <div className="text-neutral-600 mt-2 font-medium">Avg. Turnaround</div>
               </div>
               <div className="text-center group">
-                <div className="text-3xl md:text-4xl font-bold text-transparent bg-gradient-to-r from-accent-600 to-accent-700 bg-clip-text group-hover:scale-110 transition-transform duration-300">
+                <div className="text-3xl md:text-4xl font-bold text-transparent bg-gradient-to-r from-accent-500 to-accent-700 bg-clip-text group-hover:scale-110 transition-transform duration-300">
                   99%
                 </div>
                 <div className="text-neutral-600 mt-2 font-medium">Satisfaction Rate</div>
@@ -155,30 +95,52 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Right side - Enhanced Animation */}
+          {/* Right side - Featured Products Showcase */}
           <div className="relative animate-slide-up">
-            {/* 3D Printer Animation */}
+            {/* Products Showcase */}
             <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-neutral-200/50 hover:shadow-3xl transition-all duration-500">
-              <div className="flex items-center justify-center gap-2 mb-6">
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                <h3 className="text-xl font-bold text-black">Live 3D Printing</h3>
+              <div className="flex items-center justify-between mb-6">
+                <h3 className="text-xl font-bold text-neutral-900">Featured Products</h3>
+                <div className="flex items-center gap-1">
+                  <Star className="h-4 w-4 text-warning-500 fill-current" />
+                  <span className="text-sm text-neutral-600 font-medium">4.9/5 Rating</span>
+                </div>
               </div>
               
-              <canvas 
-                ref={canvasRef}
-                className="w-full h-auto border border-neutral-200 rounded-xl shadow-inner"
-                style={{ maxWidth: '400px', height: '300px' }}
-              />
+              <div className="grid gap-4">
+                {featuredProducts.map((product, index) => (
+                  <div 
+                    key={index}
+                    className="group flex items-center gap-4 p-4 rounded-xl bg-neutral-50/50 hover:bg-white transition-all duration-300 hover:shadow-md border border-transparent hover:border-neutral-200"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <div className="relative w-16 h-16 rounded-lg overflow-hidden bg-white shadow-sm">
+                      <Image
+                        src={product.image}
+                        alt={product.name}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-neutral-900 text-sm group-hover:text-primary-600 transition-colors">
+                        {product.name}
+                      </h4>
+                      <p className="text-primary-600 font-bold text-sm">{product.price}</p>
+                    </div>
+                    <ArrowRight className="h-4 w-4 text-neutral-400 group-hover:text-primary-600 group-hover:translate-x-1 transition-all duration-300" />
+                  </div>
+                ))}
+              </div>
               
-              <div className="mt-6 flex items-center justify-center gap-2">
-                <div className="flex gap-1">
-                  <div className="w-2 h-2 bg-primary-500 rounded-full animate-bounce"></div>
-                  <div className="w-2 h-2 bg-primary-500 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                  <div className="w-2 h-2 bg-primary-500 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
-                </div>
-                <span className="text-sm text-neutral-600 font-medium ml-2">
-                  Precision printing in progress...
-                </span>
+              <div className="mt-6 text-center">
+                <Link 
+                  href="/products"
+                  className="inline-flex items-center gap-2 text-primary-600 font-semibold hover:text-primary-700 transition-colors text-sm"
+                >
+                  View All Products
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
               </div>
             </div>
 
@@ -187,7 +149,7 @@ export default function HeroSection() {
               ⚡ Fast Delivery
             </div>
             
-            <div className="absolute -bottom-6 -left-6 bg-gradient-to-r from-secondary-500 to-secondary-600 text-white px-6 py-3 rounded-2xl font-semibold text-sm shadow-lg animate-float border-2 border-white" style={{ animationDelay: '1s' }}>
+            <div className="absolute -bottom-6 -left-6 bg-gradient-to-r from-secondary-700 to-secondary-900 text-white px-6 py-3 rounded-2xl font-semibold text-sm shadow-lg animate-float border-2 border-white" style={{ animationDelay: '1s' }}>
               🎯 Precision Quality
             </div>
 

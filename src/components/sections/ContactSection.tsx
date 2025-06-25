@@ -107,7 +107,7 @@ export default function ContactSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-black mb-4">
+          <h2 className="text-4xl font-bold text-neutral-900 mb-4">
             Let&apos;s Bring Your Ideas to Life
           </h2>
           <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
@@ -119,37 +119,37 @@ export default function ContactSection() {
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Information */}
           <div>
-            <h3 className="text-2xl font-bold text-black mb-8">Get in Touch</h3>
+            <h3 className="text-2xl font-bold text-neutral-900 mb-8">Get in Touch</h3>
             
             <div className="space-y-6 mb-8">
               <div className="flex items-start gap-4">
-                <div className="bg-primary-100 p-3 rounded-lg">
+                <div className="bg-primary-50 p-3 rounded-lg">
                   <Mail className="h-6 w-6 text-primary-600" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-black mb-1">Email Us</h4>
+                  <h4 className="font-semibold text-neutral-900 mb-1">Email Us</h4>
                   <p className="text-neutral-600">hello@foggy3d.com</p>
                   <p className="text-sm text-neutral-500">We typically respond within 24 hours</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="bg-primary-100 p-3 rounded-lg">
+                <div className="bg-primary-50 p-3 rounded-lg">
                   <Phone className="h-6 w-6 text-primary-600" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-black mb-1">Call Us</h4>
+                  <h4 className="font-semibold text-neutral-900 mb-1">Call Us</h4>
                   <p className="text-neutral-600">(415) 555-3D3D</p>
                   <p className="text-sm text-neutral-500">Mon-Fri 9AM-6PM PST</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="bg-primary-100 p-3 rounded-lg">
+                <div className="bg-primary-50 p-3 rounded-lg">
                   <MapPin className="h-6 w-6 text-primary-600" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-black mb-1">Based in San Francisco</h4>
+                  <h4 className="font-semibold text-neutral-900 mb-1">Based in San Francisco</h4>
                   <p className="text-neutral-600">Serving the Bay Area & beyond</p>
                   <p className="text-sm text-neutral-500">Local pickup & delivery available</p>
                 </div>
@@ -158,7 +158,7 @@ export default function ContactSection() {
 
             {/* Project Process */}
             <div className="bg-neutral-50 rounded-xl p-6 border-2 border-neutral-200">
-              <h4 className="font-bold text-black mb-4">Our Process</h4>
+              <h4 className="font-bold text-neutral-900 mb-4">Our Process</h4>
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
                   <span className="text-neutral-700">Initial Consultation</span>
@@ -183,7 +183,7 @@ export default function ContactSection() {
 
           {/* Contact Form */}
           <div className="bg-neutral-50 rounded-2xl p-8 border-2 border-neutral-200">
-            <h3 className="text-2xl font-bold text-black mb-6">Start Your Project</h3>
+            <h3 className="text-2xl font-bold text-neutral-900 mb-6">Start Your Project</h3>
             
             {submitStatus === 'success' && (
               <div className="mb-6 p-4 bg-green-50 border-2 border-green-200 rounded-lg flex items-center gap-2">
@@ -202,7 +202,7 @@ export default function ContactSection() {
             <form onSubmit={handleSubmit} className="space-y-6" suppressHydrationWarning>
               {/* Name */}
               <div>
-                <label htmlFor="name" className="block text-sm font-semibold text-black mb-2">
+                <label htmlFor="name" className="block text-sm font-semibold text-neutral-900 mb-2">
                   Your Name *
                 </label>
                 <input
@@ -221,7 +221,7 @@ export default function ContactSection() {
 
               {/* Email */}
               <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-black mb-2">
+                <label htmlFor="email" className="block text-sm font-semibold text-neutral-900 mb-2">
                   Email Address *
                 </label>
                 <input
@@ -240,7 +240,7 @@ export default function ContactSection() {
 
               {/* Inquiry Type */}
               <div>
-                <label htmlFor="inquiryType" className="block text-sm font-semibold text-black mb-2">
+                <label htmlFor="inquiryType" className="block text-sm font-semibold text-neutral-900 mb-2">
                   Type of Project *
                 </label>
                 <select
@@ -264,7 +264,7 @@ export default function ContactSection() {
               {/* Project Details (for custom parts) */}
               {formData.inquiryType === 'custom-part' && (
                 <div>
-                  <label htmlFor="projectDetails" className="block text-sm font-semibold text-black mb-2">
+                  <label htmlFor="projectDetails" className="block text-sm font-semibold text-neutral-900 mb-2">
                     Project Details *
                   </label>
                   <textarea
@@ -284,7 +284,7 @@ export default function ContactSection() {
 
               {/* Message */}
               <div>
-                <label htmlFor="message" className="block text-sm font-semibold text-black mb-2">
+                <label htmlFor="message" className="block text-sm font-semibold text-neutral-900 mb-2">
                   Additional Message *
                 </label>
                 <textarea
@@ -308,7 +308,7 @@ export default function ContactSection() {
                 className={`w-full flex items-center justify-center gap-2 px-6 py-4 rounded-lg font-semibold text-lg transition-colors ${
                   isSubmitting
                     ? 'bg-neutral-300 text-neutral-500 cursor-not-allowed'
-                    : 'bg-primary-500 text-black hover:bg-primary-600'
+                    : 'bg-gradient-to-r from-primary-500 to-secondary-900 text-white hover:from-primary-600 hover:to-secondary-800'
                 }`}
                 suppressHydrationWarning
               >
@@ -334,25 +334,25 @@ export default function ContactSection() {
 
         {/* FAQ Section */}
         <div className="mt-20">
-          <h3 className="text-2xl font-bold text-black mb-8 text-center">Frequently Asked Questions</h3>
+          <h3 className="text-2xl font-bold text-neutral-900 mb-8 text-center">Frequently Asked Questions</h3>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div className="bg-neutral-50 rounded-xl p-6 border-2 border-neutral-200">
-              <h4 className="font-bold text-black mb-3">How much does a custom project cost?</h4>
+              <h4 className="font-bold text-neutral-900 mb-3">How much does a custom project cost?</h4>
               <p className="text-neutral-600">Project costs vary based on complexity, materials, and timeline. Simple modifications start around $50, while complex engineering projects can range from $200-$2000+. We always provide detailed quotes before starting work.</p>
             </div>
             
             <div className="bg-neutral-50 rounded-xl p-6 border-2 border-neutral-200">
-              <h4 className="font-bold text-black mb-3">Do you print customer-provided CAD files?</h4>
+              <h4 className="font-bold text-neutral-900 mb-3">Do you print customer-provided CAD files?</h4>
               <p className="text-neutral-600">Absolutely! We provide high-quality 3D printing services for your CAD files. We work with STL, OBJ, 3MF, and STEP files at the highest quality possible. Don&apos;t have a 3D model? We can also create designs from sketches, photos, or detailed descriptions.</p>
             </div>
             
             <div className="bg-neutral-50 rounded-xl p-6 border-2 border-neutral-200">
-              <h4 className="font-bold text-black mb-3">Do you offer rush orders?</h4>
+              <h4 className="font-bold text-neutral-900 mb-3">Do you offer rush orders?</h4>
               <p className="text-neutral-600">Yes! For urgent projects, we offer same-day and next-day printing for an additional fee. Contact us with your timeline and we&apos;ll let you know what&apos;s possible.</p>
             </div>
             
             <div className="bg-neutral-50 rounded-xl p-6 border-2 border-neutral-200">
-              <h4 className="font-bold text-black mb-3">What&apos;s your quality guarantee?</h4>
+              <h4 className="font-bold text-neutral-900 mb-3">What&apos;s your quality guarantee?</h4>
               <p className="text-neutral-600">We stand behind every print. If you&apos;re not satisfied with the quality, we&apos;ll reprint or refund your order. For custom engineering projects, we iterate until the solution meets your requirements.</p>
             </div>
           </div>
