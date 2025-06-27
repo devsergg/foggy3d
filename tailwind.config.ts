@@ -74,9 +74,10 @@ const config: Config = {
         foreground: "hsl(var(--foreground))",
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif'],
-        mono: ['JetBrains Mono', 'Monaco', 'Consolas', 'monospace'],
+        sans: ['var(--font-geist-sans)', 'Inter', 'system-ui', 'sans-serif'],
+        display: ['var(--font-space-grotesk)', 'Space Grotesk', 'Inter', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-jetbrains-mono)', 'JetBrains Mono', 'Monaco', 'Consolas', 'monospace'],
+        technical: ['var(--font-jetbrains-mono)', 'JetBrains Mono', 'Monaco', 'Consolas', 'monospace'],
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-out',
@@ -170,6 +171,21 @@ const config: Config = {
       },
       backdropBlur: {
         xs: '2px',
+        sm: '4px',
+        md: '8px',
+        lg: '12px',
+        xl: '16px',
+        '2xl': '24px',
+        '3xl': '40px',
+      },
+      backdropSaturate: {
+        25: '.25',
+        50: '.5',
+        75: '.75',
+        100: '1',
+        125: '1.25',
+        150: '1.5',
+        200: '2',
       },
       borderRadius: {
         '4xl': '2rem',
