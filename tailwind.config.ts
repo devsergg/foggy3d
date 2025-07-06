@@ -9,30 +9,30 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Primary Colors - Based on Redesign Guide
+        // Mollyjogger-inspired Color Palette - Earthy & Rustic
         primary: {
-          50: '#FFF4ED',
-          100: '#FFE6D5',
-          200: '#FFCCAA',
-          300: '#FFAB74',
-          400: '#FF8A3C',
-          500: '#FF6B35', // Vibrant Orange - Main primary color
-          600: '#E55A2B',
-          700: '#CC4A21',
-          800: '#B33D18',
-          900: '#99330F',
+          50: '#F0F6F5',
+          100: '#E1EDEB',
+          200: '#C3DBD7',
+          300: '#A5C9C3',
+          400: '#87B7AF',
+          500: '#5C8D89', // Primary Green - Main brand color
+          600: '#4A7470',
+          700: '#385B58',
+          800: '#264240',
+          900: '#142928',
         },
         secondary: {
-          50: '#F0F4F8',
-          100: '#D9E2EC',
-          200: '#BCCCDC',
-          300: '#9FB3C8',
-          400: '#829AB1',
-          500: '#627D98',
-          600: '#486581',
-          700: '#334E68',
-          800: '#243B53',
-          900: '#1A365D', // Deep Ocean Blue - Main secondary color
+          50: '#F7F5F3',
+          100: '#EFEBE7',
+          200: '#DFD7CF',
+          300: '#CFC3B7',
+          400: '#BFAF9F',
+          500: '#A0522D', // Muted Terracotta - Accent color
+          600: '#8A4625',
+          700: '#74391D',
+          800: '#5E2D15',
+          900: '#48200D',
         },
         accent: {
           50: '#F0FDF4',
@@ -59,25 +59,25 @@ const config: Config = {
           900: '#451A03',
         },
         neutral: {
-          50: '#FAFAFA', // Warm White
-          100: '#F4F4F5',
-          200: '#E2E8F0', // Light Gray
-          300: '#CBD5E0',
-          400: '#A0AEC0',
-          500: '#718096',
-          600: '#4A5568',
-          700: '#2D3748', // Charcoal Gray
-          800: '#1A202C',
-          900: '#171923',
+          50: '#F5F5DC', // Cream/Off-white - Main background
+          100: '#F0F0E8',
+          200: '#E8E8D8',
+          300: '#D0D0C0',
+          400: '#B8B8A8',
+          500: '#8B8B7A',
+          600: '#6B6B5A',
+          700: '#3A473F', // Dark Brown/Green - Main text
+          800: '#2A342B',
+          900: '#1A241B',
         },
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
       },
       fontFamily: {
-        sans: ['var(--font-geist-sans)', 'Inter', 'system-ui', 'sans-serif'],
-        display: ['var(--font-space-grotesk)', 'Space Grotesk', 'Inter', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-merriweather)', 'Merriweather', 'Georgia', 'serif'],
+        display: ['var(--font-playfair-display)', 'Playfair Display', 'Georgia', 'serif'],
         mono: ['var(--font-jetbrains-mono)', 'JetBrains Mono', 'Monaco', 'Consolas', 'monospace'],
-        technical: ['var(--font-jetbrains-mono)', 'JetBrains Mono', 'Monaco', 'Consolas', 'monospace'],
+        body: ['var(--font-merriweather)', 'Merriweather', 'Georgia', 'serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-out',

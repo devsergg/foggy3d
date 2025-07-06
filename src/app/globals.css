@@ -1,26 +1,61 @@
 @import "tailwindcss";
 
+/* Mollyjogger-inspired Color Scheme */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F5F5DC; /* Cream/Off-white */
+  --foreground: #3A473F; /* Dark Brown/Green */
+  --primary: #5C8D89; /* Primary Green */
+  --secondary: #A0522D; /* Muted Terracotta */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-merriweather);
+  --font-mono: var(--font-jetbrains-mono);
+  --font-display: var(--font-playfair-display);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #1A241B; /* Dark neutral */
+    --foreground: #F5F5DC; /* Cream for dark mode */
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-merriweather), Georgia, serif;
+  font-feature-settings: "rlig" 1, "calt" 1;
+  line-height: 1.6;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection colors - Mollyjogger style */
+::selection {
+  background: rgba(92, 141, 137, 0.2);
+  color: #2A342B;
+}
+
+::-moz-selection {
+  background: rgba(92, 141, 137, 0.2);
+  color: #2A342B;
+}
+
+/* Custom shadow utilities for classic, rustic feel */
+.shadow-soft {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-soft-lg {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.text-shadow-sm {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
