@@ -103,12 +103,12 @@ export default function ProductsSection() {
                 Custom Solutions
               </div>
               
-              <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+              <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight" style={{color: '#2F5233'}}>
                 Don't See What You're
                 <span className="block">Looking For?</span>
               </h3>
               
-              <p className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto leading-relaxed" style={{color: '#2F5233'}}>
                 Every great product starts with a great idea. Let's collaborate to create something 
                 unique that perfectly matches your vision and requirements.
               </p>
@@ -116,7 +116,20 @@ export default function ProductsSection() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button 
                   onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="group bg-white text-primary-600 px-8 py-4 rounded-xl hover:bg-neutral-50 transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
+                  className="group border-2 px-8 py-4 rounded-xl transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
+                  style={{
+                    backgroundColor: '#ffffff',
+                    color: '#2F5233',
+                    borderColor: '#2F5233',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = '#f9fafb';
+                    e.currentTarget.style.borderColor = '#1F3422';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = '#ffffff';
+                    e.currentTarget.style.borderColor = '#2F5233';
+                  }}
                 >
                   Start Custom Project
                   <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -124,7 +137,10 @@ export default function ProductsSection() {
                 
                 <button 
                   onClick={() => document.getElementById('engineering')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="group border-2 border-white/30 text-white px-8 py-4 rounded-xl hover:border-white/50 hover:bg-white/10 transition-all duration-300 font-semibold text-lg backdrop-blur-sm shadow-md hover:shadow-lg transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
+                  className="group border-2 border-white/30 px-8 py-4 rounded-xl hover:border-white/50 hover:bg-white/10 transition-all duration-300 font-semibold text-lg backdrop-blur-sm shadow-md hover:shadow-lg transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
+                  style={{
+                    color: '#2F5233',
+                  }}
                 >
                   View Engineering Portfolio
                   <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />

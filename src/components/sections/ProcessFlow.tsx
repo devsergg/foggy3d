@@ -234,7 +234,17 @@ export default function ProcessFlow() {
             </p>
             <button 
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-white text-primary-600 px-8 py-3 rounded-lg hover:bg-neutral-100 transition-colors font-semibold text-lg"
+                              className="px-8 py-3 rounded-lg transition-colors font-semibold text-lg"
+                style={{
+                  backgroundColor: '#ffffff',
+                  color: '#2F5233',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = '#f5f5f5';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = '#ffffff';
+                }}
             >
               Get Started Today
             </button>

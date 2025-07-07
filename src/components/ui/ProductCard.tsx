@@ -68,7 +68,7 @@ export default function ProductCard({ product, onViewDetails, onAddToCart }: Pro
       {/* Product Info */}
       <div className="p-4">
         <div className="mb-2">
-          <h3 className="text-lg font-bold text-neutral-900 line-clamp-2 group-hover:text-primary-600 transition-colors">
+          <h3 className="text-lg font-bold text-neutral-900 line-clamp-2 transition-colors" onMouseEnter={(e) => e.currentTarget.style.color = '#2F5233'} onMouseLeave={(e) => e.currentTarget.style.color = '#111827'}>
             {product.name}
           </h3>
           <p className="text-sm text-neutral-700 mt-1 line-clamp-2">

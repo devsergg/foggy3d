@@ -126,7 +126,7 @@ export default function HeroSection() {
                       <h4 className="font-semibold text-neutral-900 text-sm group-hover:text-primary-600 transition-colors">
                         {product.name}
                       </h4>
-                      <p className="text-primary-600 font-bold text-sm">{product.price}</p>
+                      <p className="font-bold text-sm" style={{color: '#2F5233'}}>{product.price}</p>
                     </div>
                     <ArrowRight className="h-4 w-4 text-neutral-400 group-hover:text-primary-600 group-hover:translate-x-1 transition-all duration-300" />
                   </div>

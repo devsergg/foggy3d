@@ -4,7 +4,7 @@
 :root {
   --background: #F5F5DC; /* Cream/Off-white */
   --foreground: #3A473F; /* Dark Brown/Green */
-  --primary: #5C8D89; /* Primary Green */
+  --primary: #2F5233; /* Darker Earthy Green */
   --secondary: #A0522D; /* Muted Terracotta */
 }
 
@@ -36,14 +36,14 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Selection colors - Mollyjogger style */
+/* Selection colors - Darker Earthy Green style */
 ::selection {
-  background: rgba(92, 141, 137, 0.2);
+  background: rgba(47, 82, 51, 0.2);
   color: #2A342B;
 }
 
 ::-moz-selection {
-  background: rgba(92, 141, 137, 0.2);
+  background: rgba(47, 82, 51, 0.2);
   color: #2A342B;
 }
 

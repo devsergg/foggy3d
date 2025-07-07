@@ -11,16 +11,16 @@ const config: Config = {
       colors: {
         // Mollyjogger-inspired Color Palette - Earthy & Rustic
         primary: {
-          50: '#F0F6F5',
-          100: '#E1EDEB',
-          200: '#C3DBD7',
-          300: '#A5C9C3',
-          400: '#87B7AF',
-          500: '#5C8D89', // Primary Green - Main brand color
-          600: '#4A7470',
-          700: '#385B58',
-          800: '#264240',
-          900: '#142928',
+          50: '#F0F4F0',
+          100: '#E1E9E1',
+          200: '#C3D3C3',
+          300: '#A5BDA5',
+          400: '#87A787',
+          500: '#2F5233', // Darker Earthy Green - Main brand color
+          600: '#264428',
+          700: '#1E361E',
+          800: '#152814',
+          900: '#0D1A0A',
         },
         secondary: {
           50: '#F7F5F3',

@@ -87,7 +87,7 @@ export default function FeaturedProductsSection() {
 
                 {/* Price and Materials */}
                 <div className="flex items-center justify-between">
-                  <div className="text-2xl font-bold text-primary-600">
+                  <div className="text-2xl font-bold" style={{color: '#2F5233'}}>
                     ${product.price}
                   </div>
                   <div className="text-xs text-neutral-500">

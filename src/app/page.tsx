@@ -158,7 +158,7 @@ export default function Home() {
                   <Link 
                     href={heroSlides[currentSlide].link}
                     className="inline-flex items-center gap-3 text-neutral-50 px-8 py-4 rounded-none font-body font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-                    style={{backgroundColor: '#228B5A'}}
+                    style={{backgroundColor: '#2F5233'}}
                   >
                     {heroSlides[currentSlide].buttonText}
                     <ArrowRight className="h-5 w-5" />
@@ -277,7 +277,7 @@ export default function Home() {
             <Link 
               href="/products"
               className="inline-flex items-center gap-3 text-neutral-50 px-8 py-4 rounded-none font-body font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-              style={{backgroundColor: '#228B5A'}}
+              style={{backgroundColor: '#2F5233'}}
             >
               Shop All Products
               <ArrowRight className="h-5 w-5" />
@@ -310,7 +310,7 @@ export default function Home() {
               {/* Features List */}
               <div className="space-y-4 mb-8">
                 <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full mt-3 flex-shrink-0" style={{backgroundColor: '#228B5A'}}></div>
+                  <div className="w-2 h-2 rounded-full mt-3 flex-shrink-0" style={{backgroundColor: '#2F5233'}}></div>
                   <p className="font-body" style={{color: '#075985'}}>Custom design consultation and 3D modeling</p>
                 </div>
                 <div className="flex items-start gap-3">
@@ -330,7 +330,7 @@ export default function Home() {
               <Link 
                 href="/contact"
                 className="inline-flex items-center gap-3 text-neutral-50 px-8 py-4 rounded-none font-body font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-                style={{background: 'linear-gradient(to right, #228B5A, #0EA5E9)'}}
+                style={{background: 'linear-gradient(to right, #2F5233, #0EA5E9)'}}
               >
                 Start Your Custom Project
                 <ArrowRight className="h-5 w-5" />
