@@ -78,8 +78,8 @@ export default function ProductsSection() {
             <div className="bg-gradient-to-br from-neutral-100 to-neutral-200 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6 shadow-soft">
               <Search className="h-12 w-12 text-neutral-400" />
             </div>
-            <h3 className="text-2xl font-bold text-black mb-3">No products found</h3>
-            <p className="text-lg text-neutral-600 mb-8">Try selecting a different category or browse all products.</p>
+            <h3 className="text-2xl font-bold text-neutral-900 mb-3">No products found</h3>
+            <p className="text-lg text-neutral-700 mb-8">Try selecting a different category or browse all products.</p>
             <button 
               onClick={() => setActiveFilter('all')}
               className="bg-gradient-to-r from-primary-500 to-primary-600 text-white px-6 py-3 rounded-xl hover:from-primary-600 hover:to-primary-700 transition-all duration-300 font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-0.5"

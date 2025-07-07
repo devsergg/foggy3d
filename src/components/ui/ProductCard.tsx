@@ -68,10 +68,10 @@ export default function ProductCard({ product, onViewDetails, onAddToCart }: Pro
       {/* Product Info */}
       <div className="p-4">
         <div className="mb-2">
-          <h3 className="text-lg font-bold text-black line-clamp-2 group-hover:text-primary-600 transition-colors">
+          <h3 className="text-lg font-bold text-neutral-900 line-clamp-2 group-hover:text-primary-600 transition-colors">
             {product.name}
           </h3>
-          <p className="text-sm text-neutral-600 mt-1 line-clamp-2">
+          <p className="text-sm text-neutral-700 mt-1 line-clamp-2">
             {product.description}
           </p>
         </div>
@@ -81,7 +81,7 @@ export default function ProductCard({ product, onViewDetails, onAddToCart }: Pro
           {product.materials.slice(0, 2).map((material, index) => (
             <span
               key={index}
-              className="bg-neutral-100 text-neutral-700 px-2 py-1 rounded text-xs font-medium"
+              className="bg-neutral-100 text-neutral-800 px-2 py-1 rounded text-xs font-medium"
             >
               {material}
             </span>
@@ -91,8 +91,8 @@ export default function ProductCard({ product, onViewDetails, onAddToCart }: Pro
         {/* Price and Actions */}
         <div className="flex items-center justify-between">
           <div>
-            <span className="text-xl font-bold text-black">${product.price}</span>
-            <span className="text-sm text-neutral-500 ml-1">USD</span>
+            <span className="text-xl font-bold text-neutral-900">${product.price}</span>
+            <span className="text-sm text-neutral-600 ml-1">USD</span>
           </div>
           
           {product.inStock ? (
@@ -109,7 +109,7 @@ export default function ProductCard({ product, onViewDetails, onAddToCart }: Pro
         </div>
 
         {/* Dimensions */}
-        <div className="mt-2 text-xs text-neutral-500">
+        <div className="mt-2 text-xs text-neutral-600">
           Dimensions: {product.dimensions}
         </div>
       </div>

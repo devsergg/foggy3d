@@ -157,7 +157,8 @@ export default function Home() {
                   
                   <Link 
                     href={heroSlides[currentSlide].link}
-                    className="inline-flex items-center gap-3 bg-primary-500 hover:bg-primary-600 text-neutral-50 px-8 py-4 rounded-none font-body font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                    className="inline-flex items-center gap-3 text-neutral-50 px-8 py-4 rounded-none font-body font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                    style={{backgroundColor: '#228B5A'}}
                   >
                     {heroSlides[currentSlide].buttonText}
                     <ArrowRight className="h-5 w-5" />
@@ -203,7 +204,7 @@ export default function Home() {
       </section>
 
       {/* Featured Products Section - Mollyjogger Grid Style */}
-      <section className="py-20 bg-neutral-50">
+      <section className="py-20" style={{backgroundColor: '#F0F9F4'}}>
         <div className="max-w-7xl mx-auto px-8">
           {/* Section Header */}
           <motion.div 
@@ -213,10 +214,10 @@ export default function Home() {
             whileInView="animate"
             viewport={{ once: true }}
           >
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-neutral-700 mb-6">
+            <h2 className="font-display text-4xl md:text-5xl font-bold mb-6" style={{color: '#0F3A26'}}>
               Featured Products
             </h2>
-            <p className="font-body text-lg text-neutral-600 max-w-2xl mx-auto leading-relaxed">
+            <p className="font-body text-lg max-w-2xl mx-auto leading-relaxed" style={{color: '#155A38'}}>
               Discover our curated collection of precision-crafted pieces, each designed with care and attention to detail.
             </p>
           </motion.div>
@@ -248,13 +249,13 @@ export default function Home() {
                     
                     {/* Product Info */}
                     <div className="p-6">
-                      <p className="font-body text-sm text-primary-600 mb-2 uppercase tracking-wide">
+                      <p className="font-body text-sm mb-2 uppercase tracking-wide" style={{color: '#1A7045'}}>
                         {product.category}
                       </p>
                       <h3 className="font-display text-xl font-semibold text-neutral-700 mb-3 leading-tight">
                         {product.name}
                       </h3>
-                      <p className="font-body text-lg font-semibold text-secondary-500">
+                      <p className="font-body text-lg font-semibold" style={{color: '#0284C7'}}>
                         {product.price}
                       </p>
                     </div>
@@ -275,7 +276,8 @@ export default function Home() {
           >
             <Link 
               href="/products"
-              className="inline-flex items-center gap-3 bg-primary-500 hover:bg-primary-600 text-neutral-50 px-8 py-4 rounded-none font-body font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              className="inline-flex items-center gap-3 text-neutral-50 px-8 py-4 rounded-none font-body font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              style={{backgroundColor: '#228B5A'}}
             >
               Shop All Products
               <ArrowRight className="h-5 w-5" />
@@ -285,7 +287,7 @@ export default function Home() {
       </section>
 
       {/* Custom Projects Section - Mollyjogger Two-Column Style */}
-      <section className="py-20 bg-neutral-100">
+      <section className="py-20" style={{backgroundColor: '#F0F8FF'}}>
         <div className="max-w-7xl mx-auto px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Content */}
@@ -295,11 +297,11 @@ export default function Home() {
               whileInView="animate"
               viewport={{ once: true }}
             >
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-neutral-700 mb-6 leading-tight">
+              <h2 className="font-display text-4xl md:text-5xl font-bold mb-6 leading-tight" style={{color: '#0C4A6E'}}>
                 Bring Your Ideas to Life
               </h2>
               
-              <p className="font-body text-lg text-neutral-600 mb-8 leading-relaxed">
+              <p className="font-body text-lg mb-8 leading-relaxed" style={{color: '#075985'}}>
                 Have a unique 3D printing project in mind? From concept to creation, we specialize in 
                 custom solutions tailored to your vision. Whether it's a prototype, architectural model, 
                 or one-of-a-kind piece, we'll work with you every step of the way.
@@ -308,26 +310,27 @@ export default function Home() {
               {/* Features List */}
               <div className="space-y-4 mb-8">
                 <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary-500 rounded-full mt-3 flex-shrink-0"></div>
-                  <p className="font-body text-neutral-600">Custom design consultation and 3D modeling</p>
+                  <div className="w-2 h-2 rounded-full mt-3 flex-shrink-0" style={{backgroundColor: '#228B5A'}}></div>
+                  <p className="font-body" style={{color: '#075985'}}>Custom design consultation and 3D modeling</p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary-500 rounded-full mt-3 flex-shrink-0"></div>
-                  <p className="font-body text-neutral-600">Material selection and finish recommendations</p>
+                  <div className="w-2 h-2 rounded-full mt-3 flex-shrink-0" style={{backgroundColor: '#0284C7'}}></div>
+                  <p className="font-body" style={{color: '#075985'}}>Material selection and finish recommendations</p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary-500 rounded-full mt-3 flex-shrink-0"></div>
-                  <p className="font-body text-neutral-600">Prototype development and iteration</p>
+                  <div className="w-2 h-2 rounded-full mt-3 flex-shrink-0" style={{backgroundColor: '#0EA5E9'}}></div>
+                  <p className="font-body" style={{color: '#075985'}}>Prototype development and iteration</p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary-500 rounded-full mt-3 flex-shrink-0"></div>
-                  <p className="font-body text-neutral-600">Production-ready file preparation</p>
+                  <div className="w-2 h-2 rounded-full mt-3 flex-shrink-0" style={{backgroundColor: '#8B4513'}}></div>
+                  <p className="font-body" style={{color: '#075985'}}>Production-ready file preparation</p>
                 </div>
               </div>
               
               <Link 
                 href="/contact"
-                className="inline-flex items-center gap-3 bg-secondary-500 hover:bg-secondary-600 text-neutral-50 px-8 py-4 rounded-none font-body font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                className="inline-flex items-center gap-3 text-neutral-50 px-8 py-4 rounded-none font-body font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                style={{background: 'linear-gradient(to right, #228B5A, #0EA5E9)'}}
               >
                 Start Your Custom Project
                 <ArrowRight className="h-5 w-5" />
@@ -353,15 +356,15 @@ export default function Home() {
                </div>
               
               {/* Decorative Elements */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary-500/10 -z-10"></div>
-              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-secondary-500/10 -z-10"></div>
+              <div className="absolute -top-4 -right-4 w-24 h-24 -z-10" style={{backgroundColor: 'rgba(34, 139, 90, 0.3)'}}></div>
+              <div className="absolute -bottom-4 -left-4 w-32 h-32 -z-10" style={{backgroundColor: 'rgba(14, 165, 233, 0.3)'}}></div>
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* Services Overview - Clean Three Column */}
-      <section className="py-20 bg-neutral-50">
+      <section className="py-20" style={{backgroundColor: '#8B4513', backgroundImage: 'linear-gradient(135deg, #FDF8F6 0%, #F2E8E5 100%)'}}>
         <div className="max-w-7xl mx-auto px-8">
           {/* Section Header */}
           <motion.div 
@@ -371,10 +374,10 @@ export default function Home() {
             whileInView="animate"
             viewport={{ once: true }}
           >
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-neutral-700 mb-6">
+            <h2 className="font-display text-4xl md:text-5xl font-bold mb-6" style={{color: '#452509'}}>
               Our Services
             </h2>
-            <p className="font-body text-lg text-neutral-600 max-w-2xl mx-auto leading-relaxed">
+            <p className="font-body text-lg max-w-2xl mx-auto leading-relaxed" style={{color: '#562D0B'}}>
               Professional 3D printing services with attention to quality, speed, and precision.
             </p>
           </motion.div>
@@ -390,15 +393,15 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
             >
-              <div className="bg-primary-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Award className="h-10 w-10 text-primary-600" />
+              <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6" style={{background: 'linear-gradient(135deg, #DCF4E6, #BBE8D1)'}}>
+                <Award className="h-10 w-10" style={{color: '#155A38'}} />
               </div>
               
-              <h3 className="font-display text-2xl font-semibold text-neutral-700 mb-4">
+              <h3 className="font-display text-2xl font-semibold mb-4" style={{color: '#0F3A26'}}>
                 Premium Quality
               </h3>
               
-              <p className="font-body text-neutral-600 leading-relaxed">
+              <p className="font-body leading-relaxed" style={{color: '#13472E'}}>
                 Precision printing with layer heights as fine as 0.1mm for exceptional detail and smooth finishes.
               </p>
             </motion.div>
@@ -412,15 +415,15 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              <div className="bg-secondary-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Clock className="h-10 w-10 text-secondary-600" />
+              <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6" style={{background: 'linear-gradient(135deg, #E0F2FE, #BAE6FD)'}}>
+                <Clock className="h-10 w-10" style={{color: '#0369A1'}} />
               </div>
               
-              <h3 className="font-display text-2xl font-semibold text-neutral-700 mb-4">
+              <h3 className="font-display text-2xl font-semibold mb-4" style={{color: '#0C4A6E'}}>
                 Fast Delivery
               </h3>
               
-              <p className="font-body text-neutral-600 leading-relaxed">
+              <p className="font-body leading-relaxed" style={{color: '#075985'}}>
                 Most orders completed within 24-48 hours. Rush orders available for urgent projects.
               </p>
             </motion.div>
@@ -434,22 +437,22 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
             >
-              <div className="bg-neutral-200 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Printer className="h-10 w-10 text-neutral-600" />
+              <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6" style={{background: 'linear-gradient(135deg, #F2E8E5, #EADDD7)'}}>
+                <Printer className="h-10 w-10" style={{color: '#68350E'}} />
               </div>
               
-              <h3 className="font-display text-2xl font-semibold text-neutral-700 mb-4">
+              <h3 className="font-display text-2xl font-semibold mb-4" style={{color: '#452509'}}>
                 Material Options
               </h3>
               
-              <p className="font-body text-neutral-600 leading-relaxed">
+              <p className="font-body leading-relaxed" style={{color: '#562D0B'}}>
                 PLA, PETG, TPU, and specialty filaments. Choose the perfect material for your project needs.
               </p>
             </motion.div>
           </div>
         </div>
       </section>
-
+      
       <Footer />
     </main>
   );

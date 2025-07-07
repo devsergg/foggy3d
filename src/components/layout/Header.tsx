@@ -101,7 +101,7 @@ export default function Header() {
                     className={`group relative px-4 py-2.5 rounded-xl font-medium transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:ring-offset-2 focus:ring-offset-transparent ${
                       active 
                         ? 'text-primary-600 bg-gradient-to-r from-primary-50 to-secondary-50 shadow-soft border border-primary-100' 
-                        : 'text-neutral-700 hover:text-primary-600 hover:bg-gradient-to-r hover:from-primary-50/50 hover:to-secondary-50/50'
+                        : 'text-neutral-800 hover:text-primary-600 hover:bg-gradient-to-r hover:from-primary-50/50 hover:to-secondary-50/50'
                     }`}
                   >
                     <span className="relative z-10">{item.name}</span>
@@ -119,7 +119,7 @@ export default function Header() {
               
               {/* Enhanced Cart Icon */}
               <div className="ml-6 pl-6 border-l border-neutral-200/50">
-                <button className="group relative p-3 text-neutral-700 hover:text-primary-600 transition-all duration-300 transform hover:scale-110 rounded-xl hover:bg-gradient-to-r hover:from-primary-50/50 hover:to-secondary-50/50 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:ring-offset-2 focus:ring-offset-transparent">
+                <button className="group relative p-3 text-neutral-800 hover:text-primary-600 transition-all duration-300 transform hover:scale-110 rounded-xl hover:bg-gradient-to-r hover:from-primary-50/50 hover:to-secondary-50/50 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:ring-offset-2 focus:ring-offset-transparent">
                   <ShoppingCart className="h-5 w-5 transition-transform duration-300 group-hover:rotate-12" />
                   <span className="absolute -top-1 -right-1 bg-gradient-to-r from-primary-500 to-secondary-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center shadow-lg font-semibold animate-pulse">
                     0
@@ -153,7 +153,7 @@ export default function Header() {
             {/* Enhanced Mobile menu button */}
             <div className="md:hidden flex items-center space-x-3">
               {/* Mobile Cart */}
-              <button className="group relative p-2.5 text-neutral-700 hover:text-primary-600 transition-all duration-300 rounded-lg hover:bg-gradient-to-r hover:from-primary-50/50 hover:to-secondary-50/50 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:ring-offset-2 focus:ring-offset-transparent">
+              <button className="group relative p-2.5 text-neutral-800 hover:text-primary-600 transition-all duration-300 rounded-lg hover:bg-gradient-to-r hover:from-primary-50/50 hover:to-secondary-50/50 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:ring-offset-2 focus:ring-offset-transparent">
                 <ShoppingCart className="h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
                 <span className="absolute -top-1 -right-1 bg-gradient-to-r from-primary-500 to-secondary-500 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center shadow-lg font-semibold">
                   0
@@ -165,7 +165,7 @@ export default function Header() {
                 className={`group p-2.5 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:ring-offset-2 focus:ring-offset-transparent ${
                   mobileMenuOpen 
                     ? 'text-primary-600 bg-gradient-to-r from-primary-50 to-secondary-50 shadow-soft' 
-                    : 'text-neutral-700 hover:text-primary-600 hover:bg-gradient-to-r hover:from-primary-50/50 hover:to-secondary-50/50'
+                    : 'text-neutral-800 hover:text-primary-600 hover:bg-gradient-to-r hover:from-primary-50/50 hover:to-secondary-50/50'
                 }`}
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               >
@@ -197,7 +197,7 @@ export default function Header() {
                     className={`group flex items-center justify-between w-full px-5 py-4 rounded-2xl font-medium transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:ring-offset-2 focus:ring-offset-transparent ${
                       active 
                         ? 'text-primary-600 bg-gradient-to-r from-primary-50 to-secondary-50 shadow-soft border border-primary-100' 
-                        : 'text-neutral-700 hover:text-primary-600 hover:bg-gradient-to-r hover:from-primary-50/50 hover:to-secondary-50/50'
+                        : 'text-neutral-800 hover:text-primary-600 hover:bg-gradient-to-r hover:from-primary-50/50 hover:to-secondary-50/50'
                     }`}
                     style={{ animationDelay: `${index * 50}ms` }}
                   >

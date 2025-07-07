@@ -21,7 +21,7 @@ const filterOptions: { key: ProductCategory | 'all'; label: string; emoji: strin
 export default function FilterBar({ activeFilter, onFilterChange, productCounts }: FilterBarProps) {
   return (
     <div className="bg-white border-2 border-neutral-200 rounded-xl p-6 shadow-md">
-      <h3 className="text-lg font-bold text-black mb-4">Filter by Category</h3>
+      <h3 className="text-lg font-bold text-neutral-900 mb-4">Filter by Category</h3>
       
       <div className="flex flex-wrap gap-3">
         {filterOptions.map((option) => {
@@ -35,8 +35,8 @@ export default function FilterBar({ activeFilter, onFilterChange, productCounts 
               className={`
                 flex items-center space-x-2 px-4 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:-translate-y-0.5 hover:shadow-lg
                 ${isActive 
-                  ? 'bg-primary-500 text-black border-2 border-primary-600 shadow-lg' 
-                  : 'bg-neutral-100 text-black border-2 border-neutral-200 hover:border-primary-400 hover:bg-primary-50'
+                  ? 'bg-primary-500 text-neutral-900 border-2 border-primary-600 shadow-lg' 
+                  : 'bg-neutral-100 text-neutral-900 border-2 border-neutral-200 hover:border-primary-400 hover:bg-primary-50'
                 }
               `}
             >
@@ -46,7 +46,7 @@ export default function FilterBar({ activeFilter, onFilterChange, productCounts 
                 ml-1 px-2 py-0.5 rounded-full text-xs font-bold
                 ${isActive 
                   ? 'bg-white text-primary-600' 
-                  : 'bg-neutral-200 text-neutral-700'
+                  : 'bg-neutral-200 text-neutral-800'
                 }
               `}>
                 {count}
@@ -58,7 +58,7 @@ export default function FilterBar({ activeFilter, onFilterChange, productCounts 
       
       {/* Results Summary */}
       <div className="mt-4 pt-4 border-t border-neutral-200">
-        <p className="text-sm text-neutral-600">
+        <p className="text-sm text-neutral-700">
           {activeFilter === 'all' 
             ? `Showing all ${productCounts.all} products` 
             : `Showing ${productCounts[activeFilter]} ${filterOptions.find(f => f.key === activeFilter)?.label.toLowerCase()} products`
