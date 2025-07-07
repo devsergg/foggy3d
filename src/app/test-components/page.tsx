@@ -15,23 +15,23 @@ const TestComponentsPage = () => {
     {
       id: '1',
       name: 'Golden Gate Bridge Model',
-      image: '/images/golden-gate-model.jpg',
+      image: '/images/products/sf-souvenirs/Golden_gate_bridge.png',
       price: '$89.99',
       category: 'Architecture',
       description: 'Detailed 3D printed model of the iconic Golden Gate Bridge'
     },
     {
       id: '2',
-      name: 'Modern Desk Lamp',
-      image: '/images/desk-lamp.jpg',
+      name: 'AXEL Modern Desk Lamp',
+      image: '/images/products/lamps/AXEL LAMP 3 1080.png',
       price: '$45.00',
       category: 'Lighting',
       description: 'Sleek modern desk lamp with adjustable arm'
     },
     {
       id: '3',
-      name: 'Geometric Planter',
-      image: '/images/planter.jpg',
+      name: 'FREYA Geometric Planter',
+      image: '/images/products/vases/FREYA_planter_green-front.jpg',
       price: '$32.50',
       category: 'Home & Garden',
       description: 'Modern geometric planter for small plants'

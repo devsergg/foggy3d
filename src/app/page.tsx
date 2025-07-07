@@ -15,7 +15,7 @@ import { useState, useEffect } from 'react';
 const heroSlides = [
   {
     id: 1,
-    image: '/images/golden-gate-model.jpg',
+    image: '/images/products/sf-souvenirs/Golden_gate_bridge.png',
     title: 'Precision Crafted Models',
     description: 'Architectural masterpieces brought to life with meticulous attention to detail.',
     link: '/products',
@@ -23,7 +23,7 @@ const heroSlides = [
   },
   {
     id: 2,
-    image: '/images/desk-lamp.jpg',
+    image: '/images/products/lamps/AXEL LAMP 3 1080.png',
     title: 'Functional Design',
     description: 'Beautiful, practical pieces that enhance your everyday life.',
     link: '/products',
@@ -31,7 +31,7 @@ const heroSlides = [
   },
   {
     id: 3,
-    image: '/images/planter.jpg',
+    image: '/images/products/vases/FREYA_planter_green-front.jpg',
     title: 'Modern Living',
     description: 'Contemporary pieces that bring nature and style into your space.',
     link: '/products',
@@ -44,28 +44,28 @@ const featuredProducts = [
   {
     id: '1',
     name: 'Golden Gate Bridge Model',
-    image: '/images/golden-gate-model.jpg',
+    image: '/images/products/sf-souvenirs/Golden_gate_bridge.png',
     price: '$89.99',
     category: 'Architecture'
   },
   {
     id: '2',
     name: 'AXEL Modern Desk Lamp',
-    image: '/images/desk-lamp.jpg',
+    image: '/images/products/lamps/AXEL LAMP 3 1080.png',
     price: '$45.00',
     category: 'Lighting'
   },
   {
     id: '3',
-    name: 'Geometric Planter',
-    image: '/images/planter.jpg',
+    name: 'FREYA Geometric Planter',
+    image: '/images/products/vases/FREYA_planter_green-front.jpg',
     price: '$32.50',
     category: 'Home & Garden'
   },
   {
     id: '4',
     name: 'Sun Dragon Figure',
-    image: '/images/dragon-figure.jpg',
+    image: '/images/products/flexi-toys/Sun Dragon Articulated Keychain Figure.PNG',
     price: '$67.50',
     category: 'Collectibles'
   }
@@ -342,15 +342,15 @@ export default function Home() {
               whileInView="animate"
               viewport={{ once: true }}
             >
-              <div className="relative aspect-[4/3] overflow-hidden shadow-xl">
-                <Image
-                  src="/images/golden-gate-model.jpg"
-                  alt="Custom 3D printing project"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
+                             <div className="relative aspect-[4/3] overflow-hidden shadow-xl">
+                 <Image
+                   src="/images/products/sf-souvenirs/Golden_gate_bridge.png"
+                   alt="Custom 3D printing project"
+                   fill
+                   className="object-cover"
+                   sizes="(max-width: 1024px) 100vw, 50vw"
+                 />
+               </div>
               
               {/* Decorative Elements */}
               <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary-500/10 -z-10"></div>
