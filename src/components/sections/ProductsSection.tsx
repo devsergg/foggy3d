@@ -24,6 +24,7 @@ export default function ProductsSection() {
       'flexi-toys': 0,
       'keychains': 0,
       'functional': 0,
+      'home-decor': 0,
     };
 
     sampleProducts.forEach(product => {

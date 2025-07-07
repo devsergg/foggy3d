@@ -16,6 +16,7 @@ const filterOptions: { key: ProductCategory | 'all'; label: string; emoji: strin
   { key: 'flexi-toys', label: 'Flexi Toys', emoji: '🐉' },
   { key: 'keychains', label: 'Keychains', emoji: '🔑' },
   { key: 'functional', label: 'Functional', emoji: '⚙️' },
+  { key: 'home-decor', label: 'Home Decor', emoji: '🏠' },
 ];
 
 export default function FilterBar({ activeFilter, onFilterChange, productCounts }: FilterBarProps) {

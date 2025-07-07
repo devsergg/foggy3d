@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "add-product": "node scripts/add-product.js"
   },
   "dependencies": {
     "@react-spring/web": "^10.0.1",

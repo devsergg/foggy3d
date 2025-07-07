@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { ExternalLink, Eye } from 'lucide-react';
 import { Product } from '@/types';
+import { useImageGallery } from '@/contexts/ImageGalleryContext';
 
 interface ProductCardProps {
   product: Product;
@@ -13,6 +14,7 @@ interface ProductCardProps {
 
 export default function ProductCard({ product, onViewDetails, onAddToCart }: ProductCardProps) {
   const [isHovered, setIsHovered] = useState(false);
+  const { openGallery } = useImageGallery();
 
   return (
     <div 
@@ -47,9 +49,10 @@ export default function ProductCard({ product, onViewDetails, onAddToCart }: Pro
         {/* Hover Overlay */}
         <div className={`absolute inset-0 bg-black/20 flex items-center justify-center gap-3 transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
           <button
-            onClick={() => onViewDetails(product)}
+            onClick={() => openGallery(product.images, product.name)}
             className="bg-white text-black p-3 rounded-full hover:bg-primary-100 transition-colors shadow-lg"
-            aria-label="View details"
+            aria-label="View image gallery"
+            title="View all images"
           >
             <Eye className="h-5 w-5" />
           </button>
@@ -113,6 +116,8 @@ export default function ProductCard({ product, onViewDetails, onAddToCart }: Pro
           Dimensions: {product.dimensions}
         </div>
       </div>
+
+
     </div>
   );
 } 

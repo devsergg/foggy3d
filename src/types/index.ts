@@ -17,7 +17,8 @@ export type ProductCategory =
   | 'vases'
   | 'lamps'
   | 'sf-souvenirs'
-  | 'functional';
+  | 'functional'
+  | 'home-decor';
 
 export interface EngineeringProject {
   id: string;

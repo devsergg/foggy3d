@@ -4,10 +4,12 @@ import { ArrowRight, Star, ShoppingCart, Eye } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { sampleProducts } from '@/data/products';
+import { useImageGallery } from '@/contexts/ImageGalleryContext';
 
 export default function FeaturedProductsSection() {
   // Get featured products from the data
   const featuredProducts = sampleProducts.filter(product => product.featured);
+  const { openGallery } = useImageGallery();
 
   return (
     <section className="py-24 bg-gradient-to-br from-white via-neutral-50/30 to-primary-50/10">
@@ -50,7 +52,11 @@ export default function FeaturedProductsSection() {
                 
                 {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-2">
-                  <button className="bg-white/90 backdrop-blur-sm p-2 rounded-full hover:bg-white transition-colors">
+                  <button 
+                    onClick={() => openGallery(product.images, product.name)}
+                    className="bg-white/90 backdrop-blur-sm p-2 rounded-full hover:bg-white transition-colors"
+                    title="View all images"
+                  >
                     <Eye className="h-4 w-4 text-neutral-700" />
                   </button>
                   <button className="bg-primary-500 p-2 rounded-full hover:bg-primary-600 transition-colors">
@@ -128,6 +134,8 @@ export default function FeaturedProductsSection() {
             </Link>
           </div>
         </div>
+
+
       </div>
     </section>
   );
