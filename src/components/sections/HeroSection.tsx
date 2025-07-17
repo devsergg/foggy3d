@@ -7,19 +7,19 @@ import Image from 'next/image';
 export default function HeroSection() {
   const featuredProducts = [
     {
-      name: 'Golden Gate Bridge Model',
-      image: '/images/products/sf-souvenirs/Golden_gate_bridge.png',
-      price: '$29.99'
+      name: 'Amanita Table Lamp',
+      image: '/images/products/amanita-lamp/17-4.7.jpg',
+      price: '$49.99'
     },
     {
-      name: 'AXEL Modern Desk Lamp',
-      image: '/images/products/lamps/AXEL LAMP 3 1080.png',
-      price: '$89.99'
+      name: 'Brisa Lamp',
+      image: '/images/products/brisa-lamp/19-5.5.jpg',
+      price: '$44.99'
     },
     {
-      name: 'Sun Dragon Articulated Figure',
-      image: '/images/products/flexi-toys/Sun Dragon Articulated Keychain Figure.PNG',
-      price: '$24.99'
+      name: 'Nido Vase',
+      image: '/images/products/nido-vase/nido.png',
+      price: '$32.99'
     }
   ];
 

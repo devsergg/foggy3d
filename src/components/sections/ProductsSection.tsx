@@ -18,7 +18,7 @@ export default function ProductsSection() {
   const productCounts = useMemo(() => {
     const counts: Record<ProductCategory | 'all', number> = {
       'all': sampleProducts.length,
-      'sf-souvenirs': 0,
+  
       'vases': 0,
       'lamps': 0,
       'flexi-toys': 0,

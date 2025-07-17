@@ -7,11 +7,14 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "add-product": "node scripts/add-product.js"
+    "add-product": "node scripts/add-product.js",
+    "export-csv": "node scripts/export-to-csv.js",
+    "sync-inventory": "node scripts/sync-inventory.js"
   },
   "dependencies": {
     "@react-spring/web": "^10.0.1",
     "@use-gesture/react": "^10.3.1",
+    "@vercel/analytics": "^1.5.0",
     "clsx": "^2.1.1",
     "framer-motion": "^12.19.1",
     "locomotive-scroll": "^4.1.4",

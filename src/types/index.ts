@@ -16,7 +16,6 @@ export type ProductCategory =
   | 'flexi-toys' 
   | 'vases'
   | 'lamps'
-  | 'sf-souvenirs'
   | 'functional'
   | 'home-decor';
 

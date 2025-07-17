@@ -1,32 +1,6 @@
 import { Product } from '@/types';
 
 export const sampleProducts: Product[] = [
-  // San Francisco Souvenirs
-  {
-    id: 'sf-001',
-    name: 'Golden Gate Bridge Model',
-    category: 'sf-souvenirs',
-    price: 14.99,
-    images: ['/images/products/sf-souvenirs/Golden_gate_bridge.png'],
-    description: 'Detailed 3D printed replica of the iconic Golden Gate Bridge. Perfect desk ornament or gift.',
-    materials: ['PLA Plastic'],
-    dimensions: '8" x 2" x 3"',
-    inStock: true,
-    featured: true,
-  },
-  {
-    id: 'sf-002', 
-    name: 'Coit Tower Miniature',
-    category: 'sf-souvenirs',
-    price: 12.99,
-    images: ['/images/products/sf-souvenirs/Coit_tower.png'],
-    description: 'Authentic miniature of San Francisco\'s historic Coit Tower.',
-    materials: ['PLA Plastic'],
-    dimensions: '3" x 3" x 6"',
-    inStock: true,
-  },
-
-  
   // Vases & Home Decor
   {
     id: 'vase-001',
@@ -50,6 +24,18 @@ export const sampleProducts: Product[] = [
     materials: ['PLA Plastic'],
     dimensions: '5" x 5" x 6"',
     inStock: true,
+  },
+  {
+    id: 'vase-003',
+    name: 'Nido Vase',
+    category: 'vases',
+    price: 32.99,
+    images: ['/images/products/nido-vase/nido.png'],
+    description: 'Elegant nest-inspired vase with organic curves and modern minimalist design. Perfect for flowers or as a standalone art piece.',
+    materials: ['PLA Plastic'],
+    dimensions: '6" x 6" x 7"',
+    inStock: true,
+    featured: true,
   },
 
   // Lamps
@@ -75,6 +61,39 @@ export const sampleProducts: Product[] = [
     materials: ['PLA Plastic', 'LED Components'],
     dimensions: '6" x 6" x 10"',
     inStock: true,
+  },
+  {
+    id: 'lamp-003',
+    name: 'Amanita Table Lamp',
+    category: 'lamps',
+    price: 49.99,
+    images: [
+      '/images/products/amanita-lamp/17-4.7.jpg',
+      '/images/products/amanita-lamp/17-4.8.jpg',
+      '/images/products/amanita-lamp/17-4.9.jpg'
+    ],
+    description: 'Elegant mushroom-inspired table lamp with organic curves and warm lighting. A stunning conversation piece.',
+    materials: ['PLA Plastic', 'LED Components'],
+    dimensions: '6" x 6" x 8"',
+    inStock: true,
+    featured: true,
+  },
+  {
+    id: 'lamp-004',
+    name: 'Brisa Lamp',
+    category: 'lamps',
+    price: 44.99,
+    images: [
+      '/images/products/brisa-lamp/19-5.5.jpg',
+      '/images/products/brisa-lamp/19-5.6.jpg',
+      '/images/products/brisa-lamp/13-5.9.jpg',
+      '/images/products/brisa-lamp/13-5.10.jpg'
+    ],
+    description: 'Modern twisted lamp design with flowing curves that create beautiful ambient lighting patterns.',
+    materials: ['PLA Plastic', 'LED Strip'],
+    dimensions: '5" x 5" x 10"',
+    inStock: true,
+    featured: true,
   },
 
   // Flexi Toys

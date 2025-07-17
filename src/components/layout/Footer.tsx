@@ -88,9 +88,14 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-neutral-800 mt-8 pt-8 flex flex-col sm:flex-row justify-between items-center">
-          <p className="text-neutral-400 text-sm">
-            © 2024 Foggy3D. All rights reserved.
-          </p>
+          <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4">
+            <p className="text-neutral-400 text-sm">
+              © 2024 Foggy3D. All rights reserved.
+            </p>
+            <p className="text-neutral-400 text-sm">
+              Hive ID: 20319
+            </p>
+          </div>
           <div className="flex space-x-6 mt-4 sm:mt-0">
             <a href="#" className="text-neutral-400 hover:text-primary-500 text-sm transition-colors">
               Privacy Policy

@@ -15,27 +15,27 @@ import { useState, useEffect } from 'react';
 const heroSlides = [
   {
     id: 1,
-    image: '/images/products/sf-souvenirs/Golden_gate_bridge.png',
-    title: 'Precision Crafted Models',
-    description: 'Architectural masterpieces brought to life with meticulous attention to detail.',
+    image: '/images/products/amanita-lamp/17-4.7.jpg',
+    title: 'Organic Elegance',
+    description: 'Nature-inspired lighting that transforms any space into a sanctuary of warmth and style.',
     link: '/products',
-    buttonText: 'Explore Collection'
+    buttonText: 'Discover Lighting'
   },
   {
     id: 2,
-    image: '/images/products/lamps/AXEL LAMP 3 1080.png',
-    title: 'Functional Design',
-    description: 'Beautiful, practical pieces that enhance your everyday life.',
-    link: '/products',
-    buttonText: 'Shop Designs'
-  },
-  {
-    id: 3,
     image: '/images/products/vases/FREYA_planter_green-front.jpg',
     title: 'Modern Living',
     description: 'Contemporary pieces that bring nature and style into your space.',
     link: '/products',
     buttonText: 'View Products'
+  },
+  {
+    id: 3,
+    image: '/images/products/home-decor/decor-inyo.png',
+    title: 'Mindful Moments',
+    description: 'Thoughtfully designed pieces that create peaceful atmospheres and inspire tranquility.',
+    link: '/products',
+    buttonText: 'Shop Zen Collection'
   }
 ];
 
@@ -43,31 +43,31 @@ const heroSlides = [
 const featuredProducts = [
   {
     id: '1',
-    name: 'Golden Gate Bridge Model',
-    image: '/images/products/sf-souvenirs/Golden_gate_bridge.png',
-    price: '$89.99',
-    category: 'Architecture'
+    name: 'Amanita Table Lamp',
+    image: '/images/products/amanita-lamp/17-4.7.jpg',
+    price: '$49.99',
+    category: 'Lighting'
   },
   {
     id: '2',
-    name: 'AXEL Modern Desk Lamp',
-    image: '/images/products/lamps/AXEL LAMP 3 1080.png',
-    price: '$45.00',
+    name: 'Brisa Lamp',
+    image: '/images/products/brisa-lamp/19-5.5.jpg',
+    price: '$44.99',
     category: 'Lighting'
   },
   {
     id: '3',
-    name: 'FREYA Geometric Planter',
-    image: '/images/products/vases/FREYA_planter_green-front.jpg',
-    price: '$32.50',
+    name: 'Nido Vase',
+    image: '/images/products/nido-vase/nido.png',
+    price: '$32.99',
     category: 'Home & Garden'
   },
   {
     id: '4',
-    name: 'Sun Dragon Figure',
-    image: '/images/products/flexi-toys/Sun Dragon Articulated Keychain Figure.PNG',
-    price: '$67.50',
-    category: 'Collectibles'
+    name: 'Inyo Incense Holder',
+    image: '/images/products/home-decor/decor-inyo.png',
+    price: '$19.99',
+    category: 'Home Decor'
   }
 ];
 
@@ -347,7 +347,7 @@ export default function Home() {
             >
                              <div className="relative aspect-[4/3] overflow-hidden shadow-xl">
                  <Image
-                   src="/images/products/sf-souvenirs/Golden_gate_bridge.png"
+                   src="/images/products/vases/FREYA_planter_green-front.jpg"
                    alt="Custom 3D printing project"
                    fill
                    className="object-cover"

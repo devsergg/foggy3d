@@ -66,7 +66,7 @@ export default function FeaturedProductsSection() {
 
                 {/* Category Badge */}
                 <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-neutral-700">
-                  {product.category === 'sf-souvenirs' && 'SF Souvenir'}
+  
                   {product.category === 'vases' && 'Home Decor'}
                   {product.category === 'lamps' && 'Lighting'}
                   {product.category === 'flexi-toys' && 'Flexi Toy'}

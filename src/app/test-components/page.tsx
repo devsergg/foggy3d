@@ -15,7 +15,7 @@ const TestComponentsPage = () => {
     {
       id: '1',
       name: 'Golden Gate Bridge Model',
-      image: '/images/products/sf-souvenirs/Golden_gate_bridge.png',
+      image: '/images/products/home-decor/decor-inyo.png',
       price: '$89.99',
       category: 'Architecture',
       description: 'Detailed 3D printed model of the iconic Golden Gate Bridge'

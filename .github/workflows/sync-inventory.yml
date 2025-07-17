@@ -1,0 +1,65 @@
+name: Sync Inventory from Google Sheets
+
+on:
+  schedule:
+    # Run every hour during business hours (9 AM - 6 PM PST)
+    - cron: '0 17-2 * * 1-5'  # 9 AM - 6 PM PST (UTC+8)
+  workflow_dispatch:  # Allow manual triggering
+  repository_dispatch:
+    types: [sync-inventory]
+
+jobs:
+  sync-inventory:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Sync inventory from Google Sheets
+      env:
+        GOOGLE_SHEET_CSV_URL: ${{ secrets.GOOGLE_SHEET_CSV_URL }}
+      run: |
+        node scripts/sync-inventory.js
+        
+    - name: Check for changes
+      id: git-check
+      run: |
+        git diff --exit-code src/data/products.ts || echo "changes=true" >> $GITHUB_OUTPUT
+        
+    - name: Commit and push changes
+      if: steps.git-check.outputs.changes == 'true'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add src/data/products.ts
+        git commit -m "🔄 Auto-sync inventory from Google Sheets [skip ci]"
+        git push
+        
+    - name: Build and test
+      if: steps.git-check.outputs.changes == 'true'
+      run: |
+        npm run build
+        
+    - name: Create deployment comment
+      if: steps.git-check.outputs.changes == 'true'
+      uses: actions/github-script@v7
+      with:
+        script: |
+          github.rest.repos.createCommitComment({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            commit_sha: context.sha,
+            body: '🚀 Inventory sync completed! Changes will be automatically deployed to Vercel.'
+          }); 

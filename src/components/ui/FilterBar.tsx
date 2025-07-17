@@ -10,7 +10,7 @@ interface FilterBarProps {
 
 const filterOptions: { key: ProductCategory | 'all'; label: string; emoji: string }[] = [
   { key: 'all', label: 'All Products', emoji: '🎨' },
-  { key: 'sf-souvenirs', label: 'SF Souvenirs', emoji: '🌉' },
+
   { key: 'vases', label: 'Vases & Decor', emoji: '🏺' },
   { key: 'lamps', label: 'Lamps', emoji: '💡' },
   { key: 'flexi-toys', label: 'Flexi Toys', emoji: '🐉' },

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Playfair_Display, Merriweather, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ImageGalleryProvider } from "@/contexts/ImageGalleryContext";
+import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -50,6 +51,7 @@ export default function RootLayout({
         <ImageGalleryProvider>
           {children}
         </ImageGalleryProvider>
+        <Analytics />
       </body>
     </html>
   );
