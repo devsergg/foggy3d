@@ -1,15 +1,61 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { ArrowRight, Star, ShoppingCart, Eye } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { sampleProducts } from '@/data/products';
+import { getFeaturedProducts } from '../../../lib/products';
+import { Product } from '@/types';
 import { useImageGallery } from '@/contexts/ImageGalleryContext';
 
 export default function FeaturedProductsSection() {
-  // Get featured products from the data
-  const featuredProducts = sampleProducts.filter(product => product.featured);
+  const [featuredProducts, setFeaturedProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const { openGallery } = useImageGallery();
+
+  useEffect(() => {
+    async function fetchFeaturedProducts() {
+      try {
+        setLoading(true);
+        const products = await getFeaturedProducts();
+        setFeaturedProducts(products);
+        setError(null);
+      } catch (err) {
+        console.error('Error fetching featured products:', err);
+        setError('Failed to load featured products');
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchFeaturedProducts();
+  }, []);
+
+  if (loading) {
+    return (
+      <section className="py-24 bg-gradient-to-br from-white via-neutral-50/30 to-primary-50/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mx-auto mb-4"></div>
+            <p className="text-lg text-neutral-600">Loading featured products...</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section className="py-24 bg-gradient-to-br from-white via-neutral-50/30 to-primary-50/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <p className="text-lg text-red-600 mb-4">Error loading featured products: {error}</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="py-24 bg-gradient-to-br from-white via-neutral-50/30 to-primary-50/10">

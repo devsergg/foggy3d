@@ -1,23 +1,44 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { Product, ProductCategory } from '@/types';
-import { sampleProducts } from '@/data/products';
+import { getAllProducts } from '../../../lib/products';
 import ProductCard from '@/components/ui/ProductCard';
 import FilterBar from '@/components/ui/FilterBar';
 import { Sparkles, ArrowRight, Search } from 'lucide-react';
 
 export default function ProductsSection() {
   const [activeFilter, setActiveFilter] = useState<ProductCategory | 'all'>('all');
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    async function fetchProducts() {
+      try {
+        setLoading(true);
+        const fetchedProducts = await getAllProducts();
+        setProducts(fetchedProducts);
+        setError(null);
+      } catch (err) {
+        console.error('Error fetching products:', err);
+        setError('Failed to load products');
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchProducts();
+  }, []);
   
   const filteredProducts = activeFilter === 'all'
-    ? sampleProducts
-    : sampleProducts.filter(product => product.category === activeFilter);
+    ? products
+    : products.filter(product => product.category === activeFilter);
 
   // Calculate product counts for each category
   const productCounts = useMemo(() => {
     const counts: Record<ProductCategory | 'all', number> = {
-      'all': sampleProducts.length,
+      'all': products.length,
   
       'vases': 0,
       'lamps': 0,
@@ -27,12 +48,12 @@ export default function ProductsSection() {
       'home-decor': 0,
     };
 
-    sampleProducts.forEach(product => {
+    products.forEach(product => {
       counts[product.category]++;
     });
 
     return counts;
-  }, []);
+  }, [products]);
 
   const handleViewDetails = (product: Product) => {
     // Handle product details view
@@ -43,6 +64,37 @@ export default function ProductsSection() {
     // Handle add to cart
     console.log('Add to cart:', product.name);
   };
+
+  if (loading) {
+    return (
+      <section id="products" className="py-16 bg-gradient-to-b from-white to-neutral-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mx-auto mb-4"></div>
+            <p className="text-lg text-neutral-600">Loading products...</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section id="products" className="py-16 bg-gradient-to-b from-white to-neutral-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <p className="text-lg text-red-600 mb-4">Error loading products: {error}</p>
+            <button 
+              onClick={() => window.location.reload()}
+              className="px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors"
+            >
+              Try Again
+            </button>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id="products" className="py-16 bg-gradient-to-b from-white to-neutral-50">
